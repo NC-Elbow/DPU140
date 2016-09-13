@@ -1,0 +1,234 @@
+\documentclass[10 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{xcolor}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 1 Maths 140 Autumn 2014}
+\maketitle
+
+Section 2.1.40: Use truth tables to establish which of the following are tautologies and which are contradictions\\
+\[
+(p\wedge q) \vee (\sim p \vee (p \wedge \sim q))
+\]
+
+Solution:\\
+Let's first look at the method of brute force.  We'll write the whole truth table and see that we in fact have a tautology.
+
+\[\begin{array}{c | c | c | c | c | c}
+p & q & \sim p &  p\wedge q & p \wedge \sim q & (p\wedge q) \vee (\sim p \vee (p \wedge \sim q))\\
+\hline
+T & T & F & T & F & T \\
+T & F & F & F & T & T \\
+F & T & T & F & F & T \\
+F & F & T & F & F & T 
+\end{array}
+\]
+
+The second solution which is similar, but in some sense easier is to simply use the rules of our logical calculus and move around our symbols to combine them to a simpler statement.\\
+
+Recall that $\vee$ is an associative operation which means
+\[
+(p\vee q)\vee r \equiv p \vee (q\vee r)
+\]
+
+So our original statement is
+\[
+(p\wedge q) \vee (\sim p \vee (p \wedge \sim q)) \equiv ((p\wedge q) \vee (p\wedge \sim q)) \vee \sim p
+\]
+
+Also recall that $\wedge$ dsitributes over $\vee$ and vice verse so that
+\[
+(p\wedge q) \vee (p\wedge \sim q) \equiv p \wedge (q \vee \sim q)
+\]
+
+We also know that 
+\[
+q\vee \sim q \equiv \mathfrak{t}
+\] is a tautology and $p\wedge \mathfrak{t} \equiv p$.
+
+So our original statement reduces in this way
+\begin{eqnarray*}
+(p\wedge q) \vee (\sim p \vee (p \wedge \sim q)) & \equiv & ((p\wedge q) \vee (p\wedge \sim q)) \vee \sim p \\
+& \equiv & (p\wedge (q\vee\sim q))\vee \sim p\\
+& \equiv & (p\wedge \mathfrak{t}) \vee \sim p\\
+& \equiv & p \vee \sim p\\
+& \equiv & \mathfrak{t} 
+\end{eqnarray*}
+
+\newpage
+
+Section 2.1.42: Use truth tables to establish which of the following are tautologies and which are contradictions
+\[
+((\sim p \wedge q)\wedge (q\wedge r) \wedge \sim q
+\]
+
+Solution:\\
+Again, let's first do the truth table and then reduce via our logical calculus.
+\[
+\begin{array}{c | c | c | c | c | c }
+p & q & r & \sim p \wedge q & q\wedge r & ((\sim p \wedge q)\wedge (q\wedge r) \wedge \sim q\\
+\hline
+T & T & T & F & T & F\\
+T & T & F & F & F & F\\
+T & F & T & F & F & F\\
+T & F & F & F & F & F\\
+F & T & T & T & T & F\\
+F & T & F & T & F & F\\
+F & F & T & F & F & F\\
+F & F & F & F & F & F
+\end{array}
+\]
+
+We can clearly see that this is a contradiction. Now let's recall that $\wedge$ is also associative and simply reorder our variables.
+
+\begin{eqnarray*}
+(\sim p \wedge q)\wedge (q\wedge r) \wedge \sim q & \equiv & \sim p \wedge (q\wedge q) \wedge (r\wedge \sim q)\\
+& \equiv & (\sim p \wedge q)\wedge (\sim q \wedge r)\\
+& \equiv & (\sim p \wedge r) \wedge (q\wedge\sim q)\\
+& \equiv & (\sim p \wedge r) \wedge \mathfrak{c}\\
+& \equiv & \mathfrak{c}
+\end{eqnarray*}
+
+Since we have several $\wedge$ in a row and two contradictory variables, namely $q$ and $\sim q$ we are easily led to a contradiction.
+
+\newpage
+
+Section 2.2.15: Determine whether the following statements are logically equivalent
+\[
+p \rightarrow (q\rightarrow r) \text{ and } (p\rightarrow q)\rightarrow r
+\]
+
+Solution:\\
+These two statements are not equivalent.  All that we must do to show this is find two values in the truth table which do not match.
+
+\[
+\begin{array}{c | c | c | c | c}
+p & q & r & p \rightarrow (q\rightarrow r) & (p\rightarrow q) \rightarrow r\\
+\hline
+T & T & T & T & T\\
+T & T & F & F & F\\
+T & F & T & T & T\\
+T & F & F & T & T\\
+F & T & T & T & T\\
+\hline
+F & T & F & \color{red}{T} & \color{red}{F}\\
+\hline
+F & F & T & T & T\\
+\hline
+F & F & F & \color{red}{T} & \color{red}{F}\\
+\hline
+\end{array}
+\]
+
+So we see in rows 6 and 8 that the truth values don't match, thus these statements are not equivalent.
+
+
+\newpage
+
+Section 2.2.29: If the statement forms $P$ and $Q$ are logically equivalent, then $P\leftrightarrow Q$ is a tautology.  Conversely if $P\leftrightarrow Q$ is a tautology then $P$ and $Q$ are logically equivalent.  Use $\leftrightarrow$ to convert the following equivalence into a tautology.  Then use a truth table to verify the tautology.
+
+\[
+p\rightarrow (q\vee r) \equiv (p\wedge \sim q) \rightarrow r
+\]
+
+Solution:\\ 
+Let's simply write the truth table
+For the sake of saving a little typing space I'll call the statements 
+\[
+S_1 = p \rightarrow (q\vee r)
+\]
+
+ and
+
+\[
+S_2 = (p\wedge \sim q) \rightarrow r.
+\]
+
+Then our truth table is slightly more succint:
+
+\[
+\begin{array}{c | c | c | c | c | c}
+p & q & r & S_1 & S_2 & S_1 \leftrightarrow S_2\\
+\hline
+T & T & T & T & T & T\\
+T & T & F & T & T & T\\
+T & F & T & T & T & T\\
+T & F & F & F & F & T\\
+F & T & T & T & T & T\\
+F & T & F & T & T & T\\
+F & F & T & T & T & T\\
+F & F & F & T & T & T\\ 
+\end{array}
+\]
+
+
+\newpage
+
+Section 2.3.43: In the following problem a set of premises and a conclusion are given.  Use the valid argument forms we have discussed to deduce the conclusion from the premises, giving a reason for each step.  Assume all variables are statement variables.\\
+
+\begin{enumerate}
+\item[a.] $\sim p \rightarrow r \wedge \sim s$\\
+\item[b.] $t \rightarrow s$\\
+\item[c.] $u\rightarrow \sim p$\\
+\item[d.] $\sim w$\\
+\item[e.] $u\vee w$\\
+\item[f.] $\therefore \sim t$\\
+\end{enumerate}
+
+
+Solution:\\
+Let's put (d) and (e) together to see by elimination
+\begin{eqnarray*}
+u\vee w\\
+\sim w\\
+\therefore u
+\end{eqnarray*}
+
+Now that we know $u$.  Let's put this together with (c) and by modus ponens get $\sim p$.
+
+\begin{eqnarray*}
+u \rightarrow \sim p &\\
+u &\text{ by previous argument}\\
+\therefore \sim p &
+\end{eqnarray*}
+
+Again modus ponens with (a) tells us $r\wedge \sim s$
+\begin{eqnarray*}
+\sim p\rightarrow r\wedge \sim s\\
+\sim p\\
+\therefore r\wedge \sim s
+\end{eqnarray*}
+
+By specialization we know $\sim s$.
+\begin{eqnarray*}
+r\wedge \sim s\\
+\therefore \sim s
+\end{eqnarray*}
+
+Combining this with (b) and modus tollens gives us the desired reult of $\sim t$
+\begin{eqnarray*}
+t\rightarrow s\\
+\sim s\\
+\therefore \sim t
+\end{eqnarray*}
+
+\end{document}

@@ -1,0 +1,192 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Midterm Maths 140 Autumn 2015 \\ DePaul University\\Dr. Alexander}
+\maketitle
+You have 90 minutes to complete this exam.  Calculators are allowed, but no other electronic devices are permitted.  Please write all your answers in complete, legible sentences, and show all your work to receive full credit.  There are seven (7) problems here.  You may choose to do any six (6) of them.  
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    6&\\
+    &\\
+    7&\\
+    &\\
+    Bonus&\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+\newpage 
+Problem 1. Give the proper negation of the statement:
+\[
+\text{``If it rains, then it pours."}
+\]
+
+
+\vspace{1in}
+
+Solution: We know that $\sim(p\rightarrow q) \equiv p \wedge \sim q$\\
+
+Thus the proper negation of this statement is
+\[
+\text{`` It rains, but it does not pour"}
+\]
+
+\newpage
+Problem 2. Is the following argument valid?  Justify your answer.\\
+
+\begin{itemize}
+\item[] $p\rightarrow r$\\
+\item[] $s \vee q$\\
+\item[] $q \rightarrow p $\\
+\item[] $r \wedge \sim s$\\
+\item[] $x \vee s$\\
+\item[] $\sim x$\\
+\item[] $\therefore r$
+\end{itemize}
+
+\vspace{1in}
+
+Solution: This argument is not valid because it leads to a contradiction.  The statements $\sim x$ and $x\vee s$ tell us that $s$ must be true by elimination.  However, the statement $r\wedge \sim s$ tells us that $s$ must be false by specialization.  $s\wedge \sim s$ is a contradiction.
+
+
+\newpage
+
+Problem 3. Write the proper negation of the following statement:
+
+\[
+\forall x,y,z\in\Z \text{, If } x < 4 \text{ and } y\ge 4 \text{ then } z \ne 16
+\]
+
+\vspace{1in}
+
+Solution: We know ``for every" negates to ``there exists" and so our proper negation is
+
+\[
+\exists x,y,z\in\Z \text{such that} x < 4 \text{ and } y\ge 4 \text{ and } z = 16
+\]
+
+\newpage
+
+Problem 4. Prove the following statement or give a counterexample:
+
+\[
+\text{``The sum of an odd number of odd integers is an odd integer."}
+\]
+
+\vspace{1in}
+
+Solution: Let $m$ be an odd integer (positive).  By definition there is some $k\ge 0$ so that $m=2k+1$.  Now consider summing 
+\[
+n_1 + n_2 + n_3 + \cdots + n_m
+\] 
+where each $n_j$ is odd and written as $n_j = 2k_j + 1$
+
+Then the sum of an odd number of odd integers becomes:
+\[
+\sum_{j=1}^{2k+1} n_j = \sum_{j=1}^{2k+1} 2k_j +1 = 2\sum_{j=1}^{2k+1} k_j + \sum_{j=1}^{2k+1} 1 = 2\left(\sum_{j=1}^{2k+1} k_j +  k\right) +1
+\]
+
+which is an integer of the form $2\ell +1$ where $\ell = k_1+k_2+\cdots+k_m + k$.
+
+
+\newpage
+
+Problem 5. Prove the following or give a counterexample:
+
+\[
+\text{For every rational number } r \text{ there exists an integer } n \text{ so that } r^n \in \Z
+\]
+
+\vspace{1in}
+
+Solution: Every rational number which is nonzero has the property $r^0 = 1$.  Thus every nonzero rational number has an integer (specifically zero) which satisfies the property above.  Now we only need to consider zero.  We know that for any positive integer $k$ that $0^k = 0$ thus zero also has an integer which satisfies the above property.  Therefore the above claim is true.
+
+\newpage
+
+Problem 6. Let $\{A_n \}$ be a collection of sets indexed by $n>1$ where 
+\[
+A_n = \{\text{prime numbers less of equal to } n\}
+\]
+For example $A_2 = \{2\}$, $A_{20} = \{2,3,5,7,11,13,17,19\}$\\
+
+
+(a) Let $p>2$ be prime. Prove $A_p = A_{p+1}$\\
+
+(b) What is 
+\[
+\bigcap_{n=5}^{2015} A_n?
+\]
+
+\vspace{1in}
+
+Solution: Set theoretically, we know that $A_n \subseteq A_m$ whenever $n<m$.  This is because the potential list of prime numbers is larger. Therefore $A_p \subseteq A_{p+1}$. Now to show the other inclusion we consider the fact that $p$ is prime and greater than 2.  Therefore $p$ is odd.  Therefore $p+1$ is even and not prime.  The list of primes less or equal to $p+1$ is then exactly the same list of primes as those less than or equal to $p$.  So $A_{p+1}\subseteq A_p$ and the two sets are equal.\\
+
+(b) As stated above $A_n \subseteq A_m$ whenever $n<m$.  We also know if $A_n \subseteq A_m$ then $A_n \cap A_m = A_n$.  In our case $A_5$ is the smallest set and a subset of all others thus contained in the large intersection.  This means 
+
+\[
+\bigcap_{n=5}^{2015} A_n = A_5 = \{2,3,5\}
+\]
+
+\newpage
+
+Problem 7. Let $f:\Z \rightarrow \Z$ be the function
+\[
+f(n) = 1 + n + n^2
+\]
+(a) Is $f$ one to one (injective)?\\
+
+(b) Is $f$ onto (surjective)?
+
+\vspace{1in}
+
+Solution: This function is not one to one since $f(-1) = f(0) = 1$ but $0\ne -1$.  We have different starting points, but the same output.\\
+
+(b) This function is also not surjective for two reasons.  $1+n+n^2 > 0 $ so there are no negative values in the range.  Also, this is always an odd number, so no even numbers are in the range either.
+
+
+\newpage
+
+Bonus: The genus of a graph is defined to be the surface with the least number of holes necessary to draw a graph without self intersection.  $K_4$ for example can be drawn in the plane (as a triangle with a central vertex).  $K_5$ however, cannot.  The smallest graph which is genus two is $K_8$.  Draw $K_8$ on a surface with two holes.  Draw $K_7$ on a surface with one hole (A doughnut).
+
+
+\end{document}

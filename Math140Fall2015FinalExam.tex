@@ -1,0 +1,161 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usetikzlibrary{graphs,arrows,topaths}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Final Exam  Maths 140 Autumn 2015 \\ DePaul University\\Dr. Alexander}
+\maketitle
+You have 135 minutes to complete this exam.  Calculators are allowed, but no other electronic devices are permitted.  Please write all your answers in complete, legible sentences, and show all your work to receive full credit.  Do all ten (10) problems.
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    6&\\
+    &\\
+    7&\\
+    &\\
+    8&\\
+    &\\
+    9&\\
+    &\\
+    10&\\
+    &\\
+    Bonus&\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+\newpage 
+Problem 1. (a) Negate the following statement:
+\[
+\forall \text{ graph } G \text{, If } |V(G)| = n \text{ then } |E(G)| \ge n.
+\]
+
+\vspace{1in} 
+
+(b) Give a counterexample to show the above statement is false (i.e. the negation that you just wrote is true).
+
+\vspace{2.5in}
+
+Problem 2. Use DeMorgan's laws to prove or disprove the following:
+\[
+(p\wedge q)\rightarrow r \equiv \sim r \rightarrow (p\rightarrow \sim q) \equiv (q\wedge \sim r) \rightarrow \sim p
+\]
+
+
+\newpage
+
+Problem 3. Prove the following statement:\\
+``For every composite integer $n$ the integer $2^n -1 $ is also composite."
+
+\vspace{.5in}
+Hint: Remember your difference of squares $a^2-b^2 = (a-b)(a+b)$.\\
+And remember the geometric sum $\frac{x^{n+1}-1}{x-1} = 1 + x + x^2 + \dots + x^n$.
+
+\newpage
+
+Problem 4. Draw three graphs: The first with an Euler(ian), but not a Hamilton(ian) circuit.  The second with a Hamilton(ian) circuit, but not an Euler(ian) circuit. The third graph should a tree with with 6 vertices and 3 termincal vertices.
+
+\newpage
+
+Problem 5. This graph is called the ``Petersen graph." It is important for many reasons.
+
+(a) Write down its adjacency matrix.
+
+(b) Does this path have a Hamiltonian or Euler(ian) circuit?
+
+
+\includegraphics[scale=.5, angle=20]{PetersenGraph.jpg}
+
+
+
+
+
+Source: http://web.math.princeton.edu/math\_alive/5/Lab1/PetersenGraph.jpg
+\newpage
+
+Problem 6.  Is it possible for a simple undirected graph with $n$ vertices to have every vertex with a unique degree? This is equivalent to asking whether it is possible to have a party in which no two people know the same number of people.
+
+\newpage 
+
+Problem 7.  Let $ A= \begin{bmatrix}
+0 & 1 & 2 \\ 1 & 0 & 1 \\ 2 & 1 & 1
+\end{bmatrix}$ 
+(a) Find $A^2$, $A^3$.\\
+
+(b) Let $G$ be a graph with three vertices and adjacency matrix $A$.  Draw $G$.\\
+
+(c) Find $(A^3)_{3,3}$ Label the walks on your graph which match this.
+
+\newpage
+
+Problem 8.  In the set $A = \{1000,1001,\dots,9999 \}$ how many numbers are multiples of $7,17,$ or $37$? (Mathematical ``or")\\
+
+Hint: Let $S_n$ be the subset of $A$ of multiples of $n$.\\
+
+What is $N(S_7 \cup S_{17}\cup S_{37})$?
+
+
+\newpage
+
+Problem 9. Suppose we flip 11 ``fair" coins.\\
+(a) What is the probability of getting exactly 5 ``heads?"\\
+(b) What is the probability of getting exactly 3 ``heads" or exactly 8 ``heads?"
+
+\vspace{2.5in}
+
+
+Problem 10. Is it possible to have a graph of 5 vertices with the vertex degrees $2,2,3,3,3?$ If so, draw this graph.  If not explain why not.
+
+\newpage
+
+Bonus. An $n$ dimensional hypercube is defined as the set of points $(\pm \frac{1}{2},\pm \frac{1}{2},\dots,\pm \frac{1}{2})$.
+
+A square for example is the four point set 
+\[
+(1/2,1/2),(1/2,-1/2),(-1/2,1/2),(-1/2,-1/2)
+\]
+
+The cube has eight points, the 4-hypercube 16, etc...
+How many edges and vertices are in the $n$ hypercube graph?
+
+
+\end{document}

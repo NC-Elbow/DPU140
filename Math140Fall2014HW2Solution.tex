@@ -1,0 +1,282 @@
+\documentclass[10 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 2 Maths 140 Autumn 2014}
+\maketitle
+
+Section 3.1.12: Find a counterexample to show the following statement is false:\\
+
+\[
+\text{`` }\forall x,y\in\mathbb{R}, \sqrt{x+y} =\sqrt{x}+\sqrt{y}\text{. "}
+\]
+
+
+Solution:\\
+Let's look at this from a very simple proof.  It's true that sometimes the above equality holds, but not always.  We'll discern exactly when it's true and when not, and then give a few relevant counterexamples.\\
+
+Suppose that this equality holds, that is
+\[
+\sqrt{x+y} = \sqrt{x} + \sqrt{y}.
+\]
+Now we square both sides and do a little algebra.
+\begin{eqnarray*}
+(\sqrt{x+y})^2 & = & (\sqrt{x} + \sqrt{y})^2\\
+    x+y        & = &  x + 2\sqrt{xy} + y\\
+    0 & = & 2\sqrt{xy}\\
+    0 & = & xy.   
+\end{eqnarray*}
+So we see that this equality holds exactly when $xy=0$.  By the zero product property that means at least one of the variables must be zero.  In any other instance this will not be true.  Of course this should be reasonably clear because we know the Pythagorean theorem.  So let's pick some Pythagorean triples and show a few counter examples.\\
+
+\[
+8^2 + 15^2 = 17^2
+\]
+Thus
+\[
+\sqrt{64+ 225} = 17 \neq 23 = 8 + 15 = \sqrt{64}+\sqrt{225}.
+\]
+One more counterexample for good measure...
+\[
+11^2 + 60^2 = 61^2
+\]
+Thus
+\[
+\sqrt{3721} = 61 \neq 71 = 11 + 60 = \sqrt{121} + \sqrt{3600}
+\]
+And more generally $\forall k\in \mathbb{N}$
+\[
+(2k+1)^2 + (2k^2+2k)^2 = (2k^2+2k+1)^2
+\]
+thus
+\[
+2k^2 + 2k + 1 \neq (2k^2+2k)+(2k+1)
+\]
+
+\newpage
+
+Section 3.2.22: Write the negation for the following statement:
+\[
+\text{If the square of an integer is odd, then the integer is odd.}
+\]
+
+Solution:\\
+This statement is a universal conditional of the form
+\[
+P(x) \implies Q(x) 
+\]
+With $P(x) = $ ``The square of $x$ is odd" and\\
+$Q(x) = $ ``$x$ is odd."\\
+
+The proper negation of a conditional is not a conditional, but rather an ``and not" statement.
+\[
+\sim (P(x)\implies Q(x)) \equiv \exists x\in D,P(x)\wedge \sim Q(x)
+\]
+So we just need to negate $Q(x)$ and\\
+\[
+\sim Q(x) = \text{``} x \text{ is not odd"}
+\]
+
+So the negation comes to\\
+``There exists and integer whose square is odd, but the integer itself is not odd."
+
+\newpage
+
+Section 3.2.26: If $P(x)$ is a predicate and the domain of $x$ is all real numbers, let\\
+\begin{enumerate}
+\item[] $R$ be $\forall x\in\Z, P(x),$\\
+\item[] $S$ be $\forall x\in\Q, P(x),$\\
+\item[] $T$ be $\forall x\in\R, P(x).$\\
+\end{enumerate}
+
+(a) Find a definition for $P(x)$ (but do not use $x\in\Z$) so that $R$ is true and both $S$ and $T$ are false.\\
+
+Solution:\\
+All we need to do in this case is to see some property that is unique to integers, but rationals and reals can satisfy.\\
+
+For example, let $P(x) = ``x^2$ is an integer."  Clearly every integer squared is still an integer.  But there are certainly rational numbers and real numbers which do not have integer squares.  $.5^2 = .25\notin \Z$.\\
+
+Other examples include $P(x) = ``x$ is a polynomial with integer coefficients and evaluates to an integer."\\
+$P(x) = `` x $ is the number of words in the English language."\\
+
+  
+
+
+(b) Find a definition for $P(x)$ (but do not use $x\in\Q$) so that both $R$ and $S$ and are true and $T$ is false.\\
+
+
+Solution:\\
+Here we can simply repeat part (a) with integers being replaced by rationals.  For example:\\
+$P(x) = ``x^2$ is rational."  Keep in mind that these parentheses are completely necessary.  If we were to write a predicate without the parentheses we'd be writing something very strange. Here's a second examples with and without the parentheses.\\
+$P(x) = 8x^3 \neq 2$  This makes no sense at all.  There is clearly a real number which makes this false, but without the parantheses we're simply defining a function.  Consider the statement with the correct parentheses.\\
+$P(x) = ``8x^3 \neq 2$" 
+
+
+
+
+
+\newpage
+
+Section 3.4.19: Rewrite the statement ``No good cars are cheap"
+in the form 
+\[
+\text{`` }\forall x\in D, P(x) \rightarrow \sim Q(x)\text{ "}
+\]
+Indicate whether each of the following arguments is valid or invalid, and justify your answers.\\
+
+(a)$\begin{array}{rl}
+&\text{No good car is cheap}\\
+&\text{A Rimbaud is a good car}\\
+\therefore & \text{A Rimbaud is not cheap.}\\
+\end{array}$\\
+
+
+Solution:\\
+Define the following predicates:\\
+$G(x) = ``x$ is a good car."\\
+$Ch(x) = ``x$ is cheap."\\
+Let $R = $ Rimbaud.\\
+Then our syllogism becomes\\
+
+$\begin{array}{rl}
+& G(x) \implies \sim Ch(x)\\
+& G(R)\\
+\therefore & \sim Ch(R)\\
+\end{array}$\\
+This is valid by universal Modus Ponens.\\
+
+
+(b)$\begin{array}{rl}
+&\text{No good car is cheap}\\
+&\text{A Simbaru is a not cheap}\\
+\therefore & \text{A Simbaru is a good car.}\\
+\end{array}$\\
+
+Solution:\\
+Keeping $G(x)$ and $Ch(x)$ the same, let $S = $ Simbaru.  Then\\
+
+
+$\begin{array}{rl}
+& G(x) \implies \sim Ch(x)\\
+& \sim Ch(S)\\
+\therefore & G(S)\\
+\end{array}$\\
+Which is a converse error.\\
+
+(c)$\begin{array}{rl}
+&\text{No good car is cheap}\\
+&\text{A VX is cheap}\\
+\therefore & \text{A VX Roadster is not good.}\\
+\end{array}$\\
+
+Solution:\\
+Again keeping $G(x)$ and $Ch(x)$ letting $V = $ VX Roadster.\\
+
+$\begin{array}{rl}
+& G(x) \implies \sim Ch(x)\\
+& Ch(V)\\
+\therefore & \sim G(V)\\
+\end{array}$\\
+
+Which is valid by Universal Modus Tollens.\\
+
+
+(d)$\begin{array}{rl}
+&\text{No good car is cheap}\\
+&\text{An Omnex is not a good car}\\
+\therefore & \text{An Omnex is cheap.}\\
+\end{array}$\\
+
+Solution:\\
+Again with $G(x)$ and $Ch(x)$ and letting $M = $ Omnex.\\
+
+
+$\begin{array}{rl}
+& G(x) \implies \sim Ch(x)\\
+& \sim G(M)\\
+\therefore &  Ch(M)\\
+\end{array}$\\
+This is invalid by the inverse error.\\
+
+
+Special Note:  It is entirely possible to Solve these with Transitive arguments, but the errors are not so clearly named.  Let's look at part (a) again.\\
+Keeping our predicates the same and defining a new predicate\\
+$R(x) = `` x$ is a Rimbaud."  Then the syllogism becomes\\
+
+$\begin{array}{rl}
+& G(x) \implies \sim Ch(x)\\
+& R(x) \implies G (x)\\
+\therefore & R(x) \implies \sim Ch(x)\\
+\end{array}$\\
+
+This is valid by transitivity.  Part (b) on the other hand is simply an error in reasoning.  With $S(x) = ``x$ is a Simbaru."
+
+$\begin{array}{rl}
+& G(x) \implies \sim Ch(x)\\
+& S(x) \implies \sim Ch(x)\\
+\therefore & S(x) \implies G(x)\\
+\end{array}$\\
+
+This is some error, it probably has a name, but the name is relatively unimportant versus recognizing the flaw in reasoning.
+
+\newpage
+
+
+Section 3.4.33: In question number 33 a single conclusion follows when all the premises are taken into consideration, but it is difficult to see because the premises are jumbled up.  Reorder the premises to make it clear that a conclusion follows logically, and state the valid conclusion that can be drawn.\\
+
+\begin{enumerate}
+\item[1.] No birds except ostriches are nine feet tall.\\
+\item[2.] There are no birds in the aviary that belong to anyone but me.\\
+\item[3.] No ostrich lives on mince pies.\\
+\item[4.] I have no birds less than nine feet tall.\\
+\end{enumerate}
+
+Solution:\\
+
+Let's rewrite these statements as conditionals.
+\begin{enumerate}
+\item[1.] If a bird is nine feet tall then it's an ostritch.\\
+\item[2.] If a bird lives in the aviary then it belongs to me.\\
+\item[3.] If a bird is an ostrich then it does not live on mince pies.\\
+\item[4.] If a bird belongs to me then it's nine feet tall.\\
+\end{enumerate}
+
+Let's give the statements values let\\
+$p =$ ``A bird is nine feet tall."\\
+$q =$ ``A bird is an ostritch."\\
+$r =$ ``A bird lives in the aviary."\\
+$s =$ ``A bird belongs to me."\\
+$t =$ ``A bird does not live on mince pies."\\
+
+Then our argument looks like:\\
+$\begin{array}{rcl}
+p & \rightarrow & q\\
+r & \rightarrow & s\\
+q & \rightarrow & t\\
+s & \rightarrow & p\\
+\end{array}$
+
+
+The logical conclusion from transitivity is $r\rightarrow t$.  The statements are correctly reordered as 2,4,1,3 and the conclusion is\\
+
+``If a bird lives in the aviary then it does not live on mince pies."
+
+\end{document}
