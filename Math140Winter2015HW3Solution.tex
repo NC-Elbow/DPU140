@@ -1,0 +1,308 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{svg}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 3 Maths 140 Winter 2015}
+\maketitle 
+
+
+4.2.19. For all real numbers $a,b$ if $a<b$ then $a<\frac{a+b}{2}<b$
+
+\vspace{1in}
+
+Solution:  We see since $a<b$ we add $a$ to both sides 
+\[
+a+a < a+ b  
+\]
+Again since $a<b$ let's add $b$ to both sides
+\[
+a+b < b+b
+\]
+
+Putting it together we have
+\[
+2a < a+b < 2 b
+\]
+Now simply divide all pieces by 2 (which preserves the inequalities)
+
+\[
+a < \frac{a+b}{2} < b.
+\]
+
+
+\newpage
+
+4.2.28. Let $a,b,c,d\in\Z$ with $a \neq c$.  Suppose also that $x$ satisfies
+\[frac{ax+b}{cx+d} = 1.
+\]
+
+
+
+Is $x$ rational?
+
+\vspace{1in}
+
+Solution:  This is a matter of solving for $x$ and testing its rationality.
+\begin{eqnarray*}
+\frac{ax+b}{cx+d} & = & 1\\
+\implies ax+b & = & cx+d\\
+ax-cx & = & d - b\\
+(a-c)x & = & d-b\\
+x & = & \frac{d-b}{a-c}
+\end{eqnarray*}
+
+
+Now we only need to check that $x\in\Q$.  We do this by simply checking the criteria.  Is $x$ a ratio of two integers?  Yes. Since integers are closed under addition $d-b$ and $a-c$ are integers.  Is the denominator nonzero?  Yes.  Since we stipulated that $a\neq c$ in the hypotheses, we see $a-c\neq 0$.  And thus $x$ is a rational number.
+
+\newpage
+
+
+4.2.29. Suppose $a,b,c$ are integers and $x,y,z$ are real so that
+
+\[
+\frac{xy}{x+y} = a, \frac{xz}{x+z}=b, \text{ and } \frac{yz}{y+z}=c
+\]
+Is $x$ rational?
+
+\vspace{1in}
+
+Solution:  We can do this the easy way or the hard way (or infinitely many other in between ways).
+Let's look at the hard way first.  This involves solving $y$ in terms of $x$ then solving $z$ in terms of $x$ and then using these two facts together to solve
+\[
+\frac{xz}{x+z} = c
+\]
+for $x$ in terms of $a,b,c$.  So let's try it.
+\[
+\frac{xy}{x+y} = a  \implies xy = ax + ay \implies y = \frac{ax}{x-a}
+\]
+So now we plug this into 
+\[
+\frac{yz}{y+z} = b \implies \left(\frac{ax}{x-a}z\right) / \left(\frac{ax}{x-a}+ z\right) = b
+\]
+I'll save you some trouble here and simply show the result.
+\[
+z = \frac{by}{y-b} = \frac{abx}{(a-b)x + ab}
+\]
+Now we have 
+\[
+z= \frac{cx}{x-c} = \frac{by}{y-b} = \frac{abx}{(a-b)x + ab}
+\]
+
+Multiplying through and expanding leaves us with
+\[
+(ab+ac+bc)x^2 - 2abcx=0
+\]
+We can factor out $x$ here and by the zero product property either $x=0$ or
+\[
+x= \frac{2abc}{ab+ac+bc}.
+\]
+In either case, $x$ is rational.
+
+\vspace{1in}
+
+Solution \#2: If we realize that we can't cancel terms as things are written, but we can cancel things in the reciprocal things get much easier more quickly.
+\[
+\frac{xy}{x+y} = a \implies \frac{x+y}{xy} = \frac{1}{a} = \frac{1}{x} + \frac{1}{y}
+\]
+This leaves us with the new forms of the equations
+\[
+\frac{1}{a} = \frac{1}{x} + \frac{1}{y}, \frac{1}{b} = \frac{1}{x} + \frac{1}{z} , \frac{1}{c} = \frac{1}{z} + \frac{1}{y}
+\]
+
+We can reduce these by subtracting the third equation from the second to get
+\begin{eqnarray*}
+\frac{1}{x} + \frac{1}{y} & = & \frac{1}{a}\\
+\frac{1}{x} - \frac{1}{y} & = & \frac{1}{b}- \frac{1}{c}
+\end{eqnarray*}
+
+Now we add these to see
+\[
+\frac{2}{x} = \frac{1}{a} - \frac{1}{b} + \frac{1}{c}
+\]
+Now we don't even need to solve for $x$ since we can argue that since rationals are closed under addition and multiplication both sides are rational. That is $2/x \in\Q$ and so its reciprocal $x/2\in\Q$ and so $x\in\Q$.
+
+
+\newpage
+
+
+4.6.14. For all primes $a,b,c$ prove $a^2+b^2 \neq c^2.$
+
+\vspace{1in}
+
+
+Solution:
+
+For any $a\neq 2$, the parity is incorrect. That is the left hand side is the sum of two odd numbers which is even, and the right hand side is the square of an odd which is odd.  We proved in class that there is no integer which is both even and odd.
+
+Now suppose $a=2$ then
+
+\[
+b^2 + 4 = c^2
+\]
+
+There are no integer Pythagorean triples which involve $2^2$.
+So $b$ and $c$ cannot both be prime.
+
+\vspace{1in}
+
+Second Solution:  Let's use a difference of squares and the fact that all integers greater than two have a unique prime factorization.
+Then
+
+\[
+a^2 = c^2-b^2 = (c-b)(c+b)
+\]
+Since $a$ is prime, the only factor of $a^2$ is $a$ which means $c-b=a$ and $c+b=a$ which is impossible for $b\neq 0$.  But since $b$ is prime its not zero and this is a contradiction.
+
+
+\newpage
+
+4.6.29.For all integers $a,b,c$ if $a\nmid (b+c)$ and $a|b$ then $a\nmid  c$.
+
+\vspace{1in}
+
+Solution: Let's first algebraically manipulate our logic variables for a moment and find the ``easiest" approach to this problem.\\
+
+Let $p = $ ``$a | (b+c)$", $q = $ ``$a|b$, and $r =$ ``$a|c$"
+
+Then our above statement is stated formally as
+\[
+\sim p \wedge q \rightarrow \sim r
+\]
+The negation therefore is
+\[
+\sim(\sim p \wedge q \rightarrow \sim r) \equiv (\sim p \wedge q) \wedge \sim(\sim r) 
+\]
+
+This is an ``AND" statement among three variables and thus is commutative and associative and this means we can write our variables in any order we choose and maintain logical equivalence.  Here, however, we are dealing with a negated statement, so we should either show that this leads to a contradiction, or negate it again to return a statement logically equivalent to the one we wish to show.\\
+
+Let's begin with the contradiction.  Our negated statement says\\
+
+There exists a triple of integers $a,b,c$ so that $a|b$ ($q$) and $a|c$ ($\sim(\sim r$)) and (but) $a\nmid (b+c)$.
+We can show this to be false very quickly.
+
+By definition $a|b$ means that there is a some integer $k$ so that $b = ak$ i.e. $b/a\in\Z$.  Since $a|c$ we have some other integer $j$ so that $c = aj$ Which means
+\[
+b+c = ak + aj = a(k+j)
+\]
+Since integers are closed under addition $k+j\in\Z$ and therefore $a|(b+c)$ which contradicts the assumption that $a\nmid (b+c)$.
+
+\vspace{1in}
+
+Second Solution:  Continuing our original logic puzzle let's simply look at the following ideas
+\[
+\sim(\sim p) \equiv p, \sim(p\rightarrow q) \equiv p\wedge \sim q
+\]
+
+And so 
+\[
+\sim(()\sim p \wedge q) \rightarrow r) \equiv \sim p \wedge q \wedge r.
+\]
+
+We can write this statement in six equivalent ways
+\begin{eqnarray*}
+\sim p \wedge q \wedge r & \equiv & \sim p \wedge r \wedge q \\
+q \wedge \sim p \wedge r & \equiv & q \wedge r \wedge \sim p \\
+r \wedge \sim p \wedge q & \equiv & r \wedge q \wedge \sim p 
+\end{eqnarray*}
+
+Taking the negation of any of these gives us an equivalent statement to our original and since $ a\wedge b \equiv b\wedge a$ we can work backward and see that there are three equivalent statements to our original
+\[
+\sim p \wedge q \rightarrow r \equiv \sim p \wedge r \rightarrow q \equiv q\wedge r \rightarrow p.
+\]
+
+The third statement here is the one which is easiest to prove.
+\begin{lem}Suppose $a|b$ and $a|c$ then $a|(b+c)$
+\end{lem}
+\begin{proof}
+Since $a|b, \exists k\in\Z$ so that $b=ak$.  Since $a|c, \exists \ell\in\Z$ so that $c= a\ell$.  Then
+\[
+b+c = ak + a\ell = a(k+\ell)
+\]
+Since integers are closed under addition $k+\ell\in\Z$ and thus
+\[
+a|(b+c)
+\]
+Which is what we wished to show.
+\end{proof}
+
+
+\newpage
+
+4.6.31.Prove by contraposition
+
+a. For all positive integers $n,r,s$  if $rs< n$ then $r<\sqrt{n}$ or $s<\sqrt{n}$.
+
+\vspace{.5in}
+
+\begin{proof}
+The contrapositive of this statement is:\\
+
+``Suppose there are integers $n,r,s$ so that $r>\sqrt{n}$ and $s>\sqrt{n}$ then $rs>n$".
+
+Let's consider the string of inequalities:
+\[
+rs > \sqrt{n} s > \sqrt{n}\sqrt{n}  = n.
+\]
+The first inequality is true because $r>\sqrt{n}$ and $s$ is positive.  The second inequality is true because $s>\sqrt{n}$.
+
+\end{proof}
+
+
+In this case it may be helpful to think of $n$ is some specific number just to get your bearings.  For example if $x>10$ and $y>10$ then $xy>100$.
+
+
+\vspace{.5in}
+
+b. Prove: For all integers $n>1$, if $n$ is not prime, then there exists a prime number $p$ so that $p\leq \sqrt{n}$ and $n$ is divisible by $p$.
+
+\vspace{.5in}
+
+
+Solution: Since $n$ is not prime, there is a prime number $p$ which divides $n$.  That is 
+\[
+n=pk
+\]
+For some integer $k$.
+Let's now suppose the contrapositive, that is: ``If the smallest prime which divides $n$ is greater than $\sqrt{n}$ then $n$ is prime.
+\[
+n = pk \implies n/p = k. p>\sqrt{n} \implies k= n/p < n/\sqrt{n} = \sqrt{n}
+\]
+
+
+So if $p\sqrt{n}$ and $p$ is the smallest prime, then there is a smaller positive integer $k$ which also divides $n$.  Since $k$ is not prime (we assumed $p$ is the smallest prime) $k$ must be $1$.  Which is to say $n=p\cdot 1$ and so $n$ is prime.
+
+
+\vspace{.5in}
+
+c: State the contrapositive of the result of part (b). 
+
+The point of part (b) is to say that when checking whether or not a number is prime, we only need to consider its possible prime factors less than its squareroot.
+
+The proper contrapositive of part (b) is:
+
+``Let $n>1$ an integer. If $p$ is the smallest prime which divides $n$ and $p>\sqrt{n}$ then $n$ is prime.
+
+
+
+
+\end{document}

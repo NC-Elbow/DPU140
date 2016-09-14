@@ -1,0 +1,236 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{svg}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 2 Maths 140 Winter 2015}
+\maketitle 
+
+3.1.12: Prove or disprove
+\[
+ \forall x,y \in \mathbb{R} \sqrt{x+y} = \sqrt{x} + \sqrt{y}
+\]
+
+\vspace{1in}
+
+Solution: This is false.  Consider the counterexample $x=2, y=7.$  In fact almost any two numbers will provide a counterexample, provided one of them is not zero. Consider
+\[
+(\sqrt{x}+\sqrt{y})^2 - \sqrt{x+y}^2= (x + 2xy + y) - (x+y) = 2xy.
+\]
+That is to say that their difference is always $2xy$ and that difference is only when $xy=0$ or $x=0$ or $y=0$.  Pick any other two numbers and it will provide a counterexample.
+
+
+\newpage
+
+3.1.18 Let $D$ be the set of all students at your school, and let 
+
+$M(s)$ be ``$s$ is a math major",\\
+
+$C(s)$ be ``$s$ is a computer science student"\\
+
+$E(s)$ be ``$s$ is an engineering student"\\
+
+Express each of the following statements using quantifiers, variables, and predicates\\
+
+a. There is an engineering student who is a math major.\\
+
+Solution: There exists a student $s$ so that $E(s)$ and $M(s)$.  
+\[
+\exists s \in D \text{ s.t. } E(s)\wedge M(s)
+\]
+
+b. Every computer science student is an engineering student.\\
+
+Solution: For every student $s$.  If $C(s)$ then $E(s)$.
+\[
+\forall s\in D, C(s)\rightarrow E(s)
+\]
+
+
+c. No computer science students are engineering students.\\
+
+Solution: There does not exists a student $s$ so that $C(s)$ and $E(s)$.
+
+\[
+\forall s\in D, C(s) \rightarrow \sim E(s) \equiv \sim(\exists s \in D \text{ so that } C(s)\wedge E(s))
+\]
+
+Remember: $\sim(p\rightarrow q) \equiv p\wedge \sim q$.\\
+
+
+
+d. Some computer science students are also math majors\\
+
+Solution: There exists at least one student $s$ so that $C(s)$ and $M(s)$.
+\[
+\exists s\in D \text{ so that } C(s)\wedge M(s)
+\]
+
+
+e. Some computer science students are engineering students and some are not.\\
+
+Solution: There exists a student $s$ so that $C(s)$ and $E(s)$.  There is also some other student $t$ so that $C(t)$, but not $E(t)$.
+\[
+\exists s,t \in D \text{ so that } (C(s)\wedge E(s))\wedge(C(t)\wedge \sim E(t))
+\]
+
+\newpage
+
+3.2.8: Consider the statement, ``there are no simple solutions to life's problems." Write an informal negation for the statement, and then write the statement formally using quantifiers and variables
+
+\vspace{1in}
+
+Solution: I prefer to write the statement itself formally first, then negate, then give the informal version.\\
+
+The formal statement is
+\[
+\sim (\exists s\in S \text{ so that } P(s))
+\]
+where $S$ is the set of solutions and $P(s)$ is ``$s$ is a simple solution to life's problems."
+
+To negate this we simply add another $\sim$ which leaves us with
+\[
+(\exists s\in S \text{ so that } P(s))
+\]
+
+That is to say ``There is at least one solution to life's problems which is simple.
+
+\newpage
+
+3.2.34: Write the contrapositive for each of the following statements
+
+a. If $n$ is prime, then $n$ is not divisible by any prime number between 1 and $\sqrt{n}$.\\
+
+Solution:\\
+
+If $\sim$($n$ is not divisible by any prime number between 1 and $\sqrt{n}$)\\ 
+then $\sim$($n$ is prime).  In other words:
+
+If $n$ is divisible by some number between one and $sqrt{n}$ then $n$ is not prime.\\
+
+
+
+
+
+b. If $A$ and $B$ do not have any elements in common, then they are disjoint.\\
+
+
+Solution: \\
+
+If $\sim$($A$ and $B$ are disjoint)\\
+ then $\sim$($A$ and $B$ do not have any elements in common).  In other words:\\
+
+If $A$ and $B$ are not disjoint then they share at least one common element.
+
+\newpage
+
+
+3.4.19:
+
+Rewrite the statement "No good cars are cheap" in the form
+"$\forall x$, if $P(x)$ then $\sim Q(x)$." Indicate whether each of the following arguments is valid or invalid, and justify our answers.
+
+
+a. No good car is cheap
+
+A Rimbaud is a good car
+
+$\therefore$ a Rimbaud is not cheap\\
+
+Let $P(x)$ be ``$x$ is a good car." Let $Q(x)$ be ``$x$ is cheap." Let $R$ be a Rimbaud.\\
+
+Solution: The syllogism in (a) reads
+
+
+\begin{eqnarray*}
+\forall x\in C, & P(x) \rightarrow \sim Q(x)\\
+ & P(R)\\
+\therefore &  \sim Q(R)
+\end{eqnarray*}
+This is an example of the universal modus ponens and therefore valid.\\
+
+
+b. No good car is cheap
+
+A Simbaru is a not cheap
+
+$\therefore$ a Simbaru is a good car.\\
+
+Letting $P(x),Q(x)$ as before and $S$ be a Simbaru, we have\\
+
+\begin{eqnarray*}
+\forall x\in C, & P(x) \rightarrow \sim Q(x)\\
+& \sim Q(S)\\
+\therefore & P(S)
+\end{eqnarray*}
+This is a converse error.\\
+
+
+
+
+c. No good car is cheap
+
+A VX roadster is a cheap
+
+$\therefore$ a VX roadster is not good\\
+
+\begin{eqnarray*}
+\forall x\in C, & P(x) \rightarrow \sim Q(x)\\
+ & Q(VX)\\
+\therefore & \sim P(VX)
+\end{eqnarray*}
+This is an example of universal modus tollens.\\
+
+
+d. No good car is cheap
+
+An Omnex  is not a good car
+
+$\therefore$ an Omnex is cheap\\
+
+\begin{eqnarray*}
+\forall x\in C, & P(x) \rightarrow \sim Q(x)\\
+ & \sim P(O)\\
+\therefore & Q(O)
+\end{eqnarray*}
+
+This is an inverse error.
+
+
+\newpage
+
+4.1.53:
+
+Prove or disprove
+
+For every integer $n$, $n^2-n+11$ is a prime number.
+
+\vspace{1in}
+
+Solution: The easy counterexample is  $n=11 \implies 11^2 - 11 + 11 = 121$ which is not prime.
+
+
+
+
+
+
+\end{document}

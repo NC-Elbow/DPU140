@@ -1,0 +1,169 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\usepackage{amsfonts}
+\usepackage{svg}
+\usetikzlibrary{graphs,arrows,topaths}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\begin{document}
+
+\title{Homework 7 Maths 140 Winter 2015}
+\maketitle 
+
+6.2.37: For all integer $n\ge 1$, if $A$ and $\{B_i\}_1^{\infty}$ are any sets then
+\[
+A\cap \left(\bigcup_{i=1}^{n} B_i\right) = \bigcup_{i=1}^{n}(A\cap B_i)
+\]
+
+\vspace{1in}
+
+Solution: In order to show that two sets are equal we show that they are subsets of each other.  So let's consider the first case.  Suppose
+\[
+x\in A\cap \left(\bigcup_{i=1}^{n} B_i\right)
+\]
+Then, by definition of intersection $x\in A$ and $x\in \bigcup_{i=1}^{n} B_i$.  This means, by the definition of union that $x\in B_i$ for some $i$.  So at this particular $i$ we have 
+\[
+x\in A, x\in B_i \implies x\in A\cap B_i
+\]
+So since $x$ is in $A\cap B_i$ for some $i$ then
+\[
+x\in \bigcup_{i=1}^{n}(A\cap B_i) \implies A\cap \left(\bigcup_{i=1}^{n} B_i\right) \subseteq \bigcup_{i=1}^{n}(A\cap B_i)
+\]
+
+On the other hand: Suppose
+\[
+x \in \bigcup_{i=1}^{n} (A\cap B_i)
+\]
+Then for some $i$ we have $x\in A\cap B_i$ so $x\in A$ and $x\in B_i$ for that $i$.  Thus $x\in A \cap \bigcup_i B_i$
+
+That is 
+\[
+A\cap \left(\bigcup_{i=1}^{n} B_i\right) \supseteq \bigcup_{i=1}^{n}(A\cap B_i)
+\]
+Thus the sets are equal.
+
+\newpage
+
+6.3.51: Suppose for some sets $A,B,C$ 
+\[
+A\Delta C = B\Delta C
+\]
+Show $A=B$.
+
+\vspace{1in}
+
+Solution:
+
+Using the contrapositive here is relatively straight forward.
+Suppose $A\neq B$.  Then there exists some $x\in A$ so that $x\notin B$.  Or the other way around, but in that case we'll just switch labels.  So without loss of generality suppose we have some such $x\in A$. When it comes to set $C$ we have two possible cases
+\begin{itemize}
+\item[I] $x\in C$\\
+\item[II] $x\notin C$
+\end{itemize}
+
+In case one we have $x\in A$, $x\notin B$, $x\in C$.  Thus
+\[
+x\notin A\Delta C, \text{ but } x\in B\Delta C
+\]
+So $A\Delta C \neq B\Delta C$.
+
+In case two we have $x\in A$, $x\notin B$, $x\notin C$
+Thus
+\[
+x\in A\Delta C, \text{ but } x\notin B\Delta C
+\]
+So $A\Delta C \neq B\Delta C$.
+
+\newpage
+
+7.1.33: A student tries to define the following ``function"
+\[
+g: \Q \rightarrow \Z, \text{ by } g(m/n) = m-n
+\]
+Is this well defined?
+
+\vspace{1in}
+
+Solution:  Clearly, the problem here is that each input has infinitely many outputs, thus rendering $g$ as ``not a function."  Later we will see that $g$ is called a ``relation" on these two sets, but it is not a function.  For example:
+\[
+1 = 2-1 = g(2/1) \neq g(4/2) = 4-2 = 2
+\]
+Since $2/1 = 4/2$ $g$ has different outputs and thus does not consitute a function (is not well defined).
+
+\newpage
+
+7.1.50: Given a set $S$ and a subset $A$ define the characteristic function $\xi_A$ by
+
+\[\chi_A (x) = \left\{\begin{array}{ll}
+1 & \text{if } x\in A\\
+0 & \text{if } x\notin A
+\end{array} \right.
+\]
+
+a. Show
+\[
+\chi_{A\cap B} (x) = \chi_A(x) \cdot \chi_B(x)
+\]
+
+\vspace{.5in}
+
+Solution: There are only for possibilities for $x$.  
+\[
+(x\in A, x\in B), (x\in A, x\notin B), (x\notin A, x\in B), (x\notin A, x\notin B)
+\]
+In the first situation $\chi_{A\cap B} (x) = 1$ and in all other situations zero.  By a direct check on the values of 
+\[
+\chi_A(x)\cdot \chi_B(x)
+\]
+We will see that the values are exactly the same in all cases.  This constitutes a proof by exhaustion.
+
+\vspace{.5in}
+
+\[
+b.\chi_{A\cup B} (x) = \chi_A(x) + \chi_B(x) - \chi{A\cap B}
+\]
+
+\vspace{.5in}
+
+Solution: In this case, we directly check all the values again.
+In cases 1,2,3 both functions result in a value of 1.  Only in the fourth case do we get a value of zero.  This holds true on both sides of the equation and thus the functions are equal.
+
+\newpage
+
+
+7.2.23: Define
+\[
+F : \mathcal{P}(\{a,b,c\}) \rightarrow \Z
+\]
+by
+\[
+F(A) = |A|, \text{ the number of elements in set } A.
+\]
+a. Is $F$ injective?\\
+b. Is $F$ surjective?
+
+\vspace{1in}
+
+Solution: For part (a).  We see that the sets $\{a\}$ and $\{b\}$ each have one element, but this element differs and so that sets are not the same, but $F(\{a\})=1 = F(\{b\})$.  Since we have the same output, but different inputs, this function is not injective (one to one).\\
+
+
+For part (b) We see that the largest subset of $\{a,b,c\}$ is the set itself which has three elements.  So the range of $F$ is simple $\{0,1,2,3\}$  This is clearly not surjective on the integers.  There is an empty preimage for all negative integers and all positive integers greater than 4.  Thus $F$ is not surjective (onto).
+
+\end{document}

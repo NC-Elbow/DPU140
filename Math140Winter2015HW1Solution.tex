@@ -1,0 +1,198 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{svg}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 1 Maths 140 Winter 2015}
+\maketitle 
+
+
+
+2.1.24:
+Determine if the following statements are logically equivalent or not:
+\[
+(p\vee q) \vee (q \wedge r)  \text{ and } (p \vee q) \wedge r
+\]
+
+\vspace{1in}
+
+Solution: In this case we simply need to write the truth tables and compare.  Since there are three variables $p,q,r$ we will need eight (8) rows.
+
+\begin{center}
+  \begin{tabular}{ c | c | c | c | c}
+    
+    $p$ & $q$ & $r$ & $(p \wedge q) \wedge (q\vee r)$ & $(p\vee q)\wedge r$\\ \hline
+    T & T & T & T & T\\ 
+    T & T & F & T & F\\
+    T & F & T & F & T\\
+    T & F & F & F & F\\
+    F & T & T & F & T\\
+    F & T & F & F & F\\
+    F & F & T & F & F\\
+    F & F & F & F & F\\
+  \end{tabular}
+\end{center}
+
+
+We can clearly see these are not logically equivalent.  These statements have matching values in only rows 1,4,7,8 and differ elsewhere.
+
+
+\newpage
+
+2.1.54: Verify logical equivalence:
+
+\[
+(p \wedge (\sim (\sim p \vee q))) \vee ( p \wedge q) \equiv p
+\]
+
+\vspace{1in}
+
+Solution: There are two ways to go about this.  The first way, which is the longer way, is to compare truth tables.  The second way is to simply use our rules of logical equivalence to reduce the left hand side to the right, much like we would do in a high school algebra class.
+
+\begin{eqnarray*}
+(p \wedge (\sim (\sim p \vee q))) \vee ( p \wedge q) & \equiv & 
+(p \wedge (p\wedge \sim q )) \vee (p\wedge q)\\
+(\text{By negating `or'}) & & \\
+& \equiv & (p\wedge \sim q) \vee (p\wedge q)\\
+(\text{By absorption}) &&\\
+& \equiv & p\wedge (\sim q \vee q)\\
+(\text{By distribution}) &&\\
+& \equiv & p \wedge \mathfrak{t} \\
+& \equiv & p
+\end{eqnarray*}
+
+\newpage
+2.2.31:
+
+Determine whether the following statements are equivalent then use a biconditional to write a tautology.
+\[
+p \rightarrow (q \rightarrow r) \equiv (p \wedge q) \rightarrow r
+\]
+
+\vspace{1in}
+
+Solution: First, let's write our truth table
+
+
+\begin{center}
+  \begin{tabular}{ c | c | c | c | c}
+    
+    $p$ & $q$ & $r$ & $p \rightarrow (q \rightarrow r)$  &  $(p\wedge q)\rightarrow r$\\ \hline
+    T & T & T & T & T\\ 
+    T & T & F & F & F\\
+    T & F & T & T & T\\
+    T & F & F & T & T\\
+    F & T & T & T & T\\
+    F & T & F & T & T\\
+    F & F & T & T & T\\
+    F & F & F & T & T\\
+  \end{tabular}
+\end{center}
+
+
+We see these are equivalent logical statements and therefore we can write the tautology
+\[
+(p \rightarrow (q \rightarrow r)) \leftrightarrow ((p\wedge q)\rightarrow r)
+\]
+
+The truth table now looks like
+
+\begin{center}
+  \begin{tabular}{ c | c | c | c }
+    
+    $p$ & $q$ & $r$ & $(p \rightarrow (q \rightarrow r))  \leftrightarrow  ((p\wedge q)\rightarrow r)$\\ \hline
+    T & T & T & T\\ 
+    T & T & F & T\\
+    T & F & T & T\\
+    T & F & F & T\\
+    F & T & T & T\\
+    F & T & F & T\\
+    F & F & T & T\\
+    F & F & F & T\\
+  \end{tabular}
+\end{center}
+
+
+\newpage
+
+2.2.32: Rewrite as a conjunction of two if-then statements
+
+The quadratic equation has two distinct real roots if, and only if, its discriminant is greater than zero.
+
+
+\vspace{1in}
+
+Solution: We recall that an ``if, and only if" statement can be written as the disjunction of two conditionals.
+
+\[
+p \leftrightarrow q \equiv (p\rightarrow q) \wedge (q \rightarrow p)
+\]
+
+In this case we let\\
+
+ $p = $`The quadratic equation has two distinct real zeroes'.  
+ 
+ And we let
+
+$q = $ `Its discriminant is greater than zero.'\\
+
+
+
+So we can rewrite the original statement as:\\
+
+
+
+``If the quadratic equation has two distinct real zeroes then its discriminant is greater than zero AND If the quadratic equation's discriminant is greater than zero then the quadratic equation has two distinct real zeroes."
+
+\newpage
+
+2.3.33: Give an example of a valid argument with a false conclusion.
+
+
+\vspace{1in}
+
+Solution: The point of this question is to assert that we understand valid argument forms. Of course, if an argument is valid and all its premises (hypotheses) are true then the conclusion must be true.  So we must present a valid argument form in which at least one of the hypotheses is false and thus we can arrive at a false conclusion.  It should be noted, however, that often a conclusion may be correct even if the hypotheses are wrong, this is called a logical fallacy.\\
+
+Let's keep this simple and use the Modus Ponens.
+\begin{center}
+$p\rightarrow q$\\
+$p$\\
+$\therefore q$\\
+\end{center}
+
+\vspace{.25in}
+
+
+
+If I live in America then I have a billion dollars.\\
+
+I live in America.\\
+
+Therefore I have a billion dollars.\\
+
+
+
+
+The premise here, which is obviously false, is the conditional statement.  Thus by making $q$ false we can simply falsify the conclusion.
+
+
+\end{document}
