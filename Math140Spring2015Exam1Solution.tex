@@ -1,0 +1,298 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Exam 1 Maths 140 Spring 2015 \\ DePaul University\\Dr. Alexander}
+\maketitle
+You have 90 minutes to complete this exam.  Calculators are allowed, but no other electronic devices are permitted.  Please write all your answers in complete, legible sentences, and show all your work to receive full credit.  There are seven (7) problems here.  You may choose to do any 6 of them.  
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    6&\\
+    &\\
+    7&\\
+    &\\
+    Bonus&\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+\newpage 
+Problem 1. Give the proper negation of the statement:
+\[
+\text{``If } x\in\Z \text{ and } y\in\Q \text{ then } x^y \in \R.
+\]
+
+
+\vspace{1in}
+
+Solution: Let's recall that the negation of a conditional gives a `` but not " statment:
+
+\[
+\sim (p\rightarrow q) \equiv p \wedge \sim q
+\]
+
+Therefore our proper negation from above is
+
+\[
+ x\in\Z \text{ and } y\in\Q \text{ and } x^y \notin \R.
+\]
+
+
+
+\newpage
+Problem 2. Is the following argument valid?  Justify your answer.
+
+
+\begin{itemize}
+\item[] Math is either easy or hard.\\
+\item[] If Math is easy then I pass this class\\
+\item[] If Math is hard then I must do a lot of work.\\
+\item[] If I do a lot of work then I pass this class.\\
+\item[] $\therefore$  I pass this class.
+\end{itemize}
+
+\vspace{1in}
+
+Solution: Let's give the following statement variables these definitions: 
+
+\begin{itemize}
+\item[] $E = $ Math is easy or hard.\\
+\item[] $H = $ Math is hard.\\
+\item[] $P = $ I pass this class.\\
+\item[] $W = $ I do a lot of work.\\
+\end{itemize}
+
+Then the argument takes the following form:
+
+\begin{itemize}
+\item[] $E \vee H$\\
+\item[] $E \rightarrow P$ \\
+\item[] $H \rightarrow W$\\
+\item[] $W \rightarrow P$\\
+\item[] $\therefore P$  
+\end{itemize}
+
+We could construct a truth table and check all 16 rows.  There are only a few critical rows and $P$ is true in all of them, so it is a valid argument.  However, we can break this down a little more simply.  This is a proof by division into cases.  In the case, ``math is easy" We have a classical Modus Ponens.  $E$ then $P$.  $E$.  $\therefore P$.  In the case ``math is hard" we have transitivity.  In every situation, $P$ is a valid conclusion, and thus the argument (form) is valid.
+
+
+\newpage
+
+Problem 3. Write the proper negation of the following statement:
+
+\[
+\forall a,b,c\in\Z \text{, If } a/b\in\Z \text{ and } b/c\in\Z \text{ then } a/c\in\Z.
+\]
+
+\vspace{1in}
+
+Solution:  This is a near carbon copy of problem (1) except for the universal quantifier, which negates to an existential quantifier.  Thus:
+
+\[
+\exists a,b,c\in\Z \text{ s.t. } a/b\in\Z \text{ and } b/c\in\Z \text{ and } a/c\notin\Z.
+\]
+
+In English: ``There are three integers called $a,b,c$ so that the division of $a$ by $b$ is an integer, the division of $b$ by $c$ is also an integer, but the division of $a$ by $c$ is not an integer.
+
+
+\newpage
+
+Problem 4. Prove the following statement or give a counterexample:
+
+\[
+\forall m\in\Z \text{, If } m^2 \text{ is odd, then } m+1 \text{ is even.}
+\]
+
+
+\vspace{1in}
+
+Solution: Let's begin by showing the $m$ is also odd.  We wish to show ``If $m\in\Z$ and $m^2$ is odd, then $m$ is odd."
+
+Consider the contrapositive.  If $m\in \Z$ and $m$ is even then $m^2$ is even.  The proof of this is simple:  Let $m$ be even.  Then there is some integer $k$ so that $m=2k.$  Then $m^2 = 4k^2 = 2(2k^2)$ and since integers are closed under multiplication $2k^2$ is an integer and thus $m^2$ is even.  This is the contrapositive, thus the original statement we wished to prove is true.
+
+Now, since $m\in\Z$ $m^2$ is odd implies $m$ is odd, there exists some $\ell\in\Z$ so that $m=2\ell+1$.  This means $m+1 = 2\ell +1 +1 = 2(\ell+1)$ and again since integers are closed under addition $\ell+1$ is an integer and thus $m+1$ is even.
+
+\newpage
+
+Problem 5. Prove the following or give a counterexample:
+
+\[
+\text{If } r\in\Q \text{ and } \sqrt{r}\in\Q \text{ then } r^{1/3}\in\Q.
+\]
+
+Hint: Don't make the mistake of the converse of inverse error here.
+
+
+\vspace{1in}
+
+Solution: This is a false statement.  Consider 4.  $4\in\Q$, $\sqrt{4} = 2\in\Q$ but $4^{1/3}\notin \Q$. 
+Let's show that the cube root of 4 is not rational.
+
+Suppose the cube root of 4 were, in fact, rational then there would exist two integers $a,b$ so that 
+\[
+4^{1/3} = \frac{a}{b}
+\]
+Where $a$ and $b$ are in lowest terms, and $b\ne 0$.
+
+In this case
+\[
+4 = \frac{a^3}{b^3} \implies 4b^3 = a^3.
+\]  
+Since we know only evens multiply to give evens and $4b^3$ is even, then $a^3$ must be even and thus so too must $a$ (be even).
+Since $a$ is even there is some $k\in\Z$ so that $a=2k$.  This means $a^3 = 8k^3$.   Which means $4b^3 = 8k^3.$ And $b^3 = 2k^3$  This means that $b$ is also even, but this contradicts the assertion that $a$ and $b$ must be in lowest terms.  Therefore $4^{1/3}$ is no rational.
+
+
+
+\newpage
+
+Problem 6. Prove the following statement by contraposition:
+
+\[
+\text{If the product of two positive, real numbers is greater than } n,
+\]
+\[
+\text{then at least one of the numbers is greater than } \sqrt{n}.
+\]
+
+\vspace{1in}
+
+Solution: The contrapositive of this statement is
+\[
+\text{If two positive real numbers are both less than or equal to } \sqrt{n}
+\]
+\[
+\text{then their product is less than or equal to } n.
+\]
+
+The proof of this is as simple as possible.  Suppose both $x$ and $y$ are positive real numbers so that
+\[
+x \le \sqrt{n} \text{ and } y\le \sqrt{n}
+\]
+This means multiplying both sides of the first inequality by a positive number will maintain the inequality we have
+\[
+xy \le \sqrt{n} \cdot y
+\]
+Now taking the second inequality from our assumption and multiplying by another positive number (this time $\sqrt{n}$) will maintain the inequality as well.  So we have
+\[
+x\cdot y \le \sqrt{n} \cdot y \le \sqrt{n}\cdot\sqrt{n} = n
+\]
+
+So the product is less than or equal to $n$.
+
+\newpage
+
+Problem 7. Construct a statement $P$ out of three variables $p,q,r$ that has the following truth table.
+
+\begin{center}
+
+\begin{tabular}{c|c|c|c}
+$p$ & $q$ & $r$ & $P(p,q,r)$\\
+\hline
+T & T & T & F \\
+T & T & F & T \\
+T & F & T & T \\
+T & F & F & F \\
+F & T & T & T \\
+F & T & F & F \\
+F & F & T & T \\
+F & F & F & T \\
+\end{tabular}
+
+\end{center}
+
+
+\vspace{1in}
+
+Solution: There is not a singular correct solution here.  There are many.  In my case, I like to look at the truth table in two pieces.  First in which $p$ evaluates to true.  One the ``top half" of the table we see $q \text{ XOR } r$.  When $p$ is false we have $q\rightarrow r$.
+
+So the top half we need $p$ to be true and the overall value to be equivalent to $q \text{ XOR } r$.  This can be achieved by $p\wedge (q \text{ XOR } r)$ or $p\rightarrow (q\text{ XOR } r)$.  In the bottom half, $p$ is False and we need the overall value to be $q\rightarrow r$ this can be achieved by $p \vee (q\rightarrow r)$
+
+So the overall statement looks something like
+\[
+P(p,q,r) \equiv (p\rightarrow (q\text{ XOR } r))\wedge (p \vee (q\rightarrow r))
+\]
+Which we can check fits the truth table above.
+
+
+\newpage
+
+Bonus: There are twenty coins sitting on the table, ten are currently heads and tens are currently tails. You are sitting at the table with a blindfold and gloves on. You are able to feel where the coins are, but are unable to see or feel if they heads or tails. You must create two sets of coins. Each set must have the same number of heads and tails as the other group. You can only move or flip the coins, you are unable to determine their current state. How do you create two even groups of coins with the same number of heads and tails in each group?\\
+
+ref: http://www.folj.com/
+
+
+\vspace{1in}
+
+Solution: We must separate the coins into two piles.  Let's call them $A$ and $B$.  Let $H_A, H_B, T_A, T_B$ represent the numbers of heads in $A$, heads in $B$, tails in $A$, and tails in $B$ respectively.  Then we have the following equations:
+
+\[
+H_A + T_A + H_B + T_B = 20
+\]
+
+\[
+H_A + H_B = T_A + T_B = 10.
+\]
+and since the piles will require an even number of heads and tails
+\[
+H_A + T_A = H_B + T_B
+\]
+
+Therefore 
+\[
+H_A + T_A + H_B + T_B = H_A + T_A + H_A + T_A = 20
+\]
+So $H_A + T_A = 10$ which means we must split the coins into two piles of ten each.
+
+Now 
+\[
+H_A + H_B = 10
+\]
+So $H_A = 10 - H_B$ and similarly for tails.
+
+If we flip all the coins in one pile then then number of heads and tails exchange: i.e.
+\[
+f(H_C) = 10 - H_C 
+\]
+
+where $f$ is the ``flipping" function and $C$ represents some particular pile, but not necessarily $A$ or $B$ as these are arbitrary labels anyway.  
+So We split the coins into two piles of ten and then flip all the coins in one pile.  
+
+\end{document}
