@@ -1,0 +1,227 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Midterm Maths 140 Winter 2016 \\ DePaul University\\Dr. Alexander}
+\maketitle
+You have 90 minutes to complete this exam.  Calculators are allowed, but no other electronic devices are permitted.  Please write all your answers in complete, legible sentences, and show all your work to receive full credit.  Please do all seven (7) problems.
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    6&\\
+    &\\
+    7&\\
+    &\\
+    Bonus&\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+\newpage 
+Problem 1. Give the proper negation of the statement:
+\[
+\forall x\in\Z \text{``If } x\ge 2 \text{ then } x^3 \ge 8 \text{."}
+\]
+
+
+\vspace{.5in}
+
+Solution: We know the negation of $\forall$ is $\exists$ and the negation of $p\rightarrow q$ is $p \wedge \sim q$.  Thus the negation is
+\[
+\exists x \in Z \text{ such that } x\ge 2 \text{ and } x^3 <8
+\]
+
+\newpage
+Problem 2. Is the following argument valid?  Justify your answer.\\
+
+
+\begin{itemize}
+\item[] If it rains then the street will be wet.\\
+\item[] The street is wet.\\
+\item[] Therefore it rained.
+\end{itemize}
+
+\vspace{.5in}
+
+Solution:  This argument is not valid.  It's a converse error.  If we allow the following assignments
+
+\begin{itemize}
+\item[] $p = $ it rains \\
+\item[] $q = $ The street is wet.\\
+\end{itemize}
+
+Then the argument form is 
+\begin{itemize}
+\item[] $p\rightarrow q$\\
+\item[] $q$\\
+\item[] Therefore $p$.
+\end{itemize}
+
+We can see this is not valid in a truth table by looking at the row where $p$ is false, and $q$ is true.
+
+
+\newpage
+
+Problem 3. Prove the following or give a counterexample:
+
+\[
+\text{ If } r\in\Q \text{ and } \sqrt{r}\in\Q \text{ then } r^{1/3}\in\Q.
+\]
+
+
+\vspace{.5in}
+
+This is clearly false.  Consider the counterexample $r=4$.
+Since $r\in\Z$ and $\Z \subseteq \Q$ we certainly have $r\in \Q$.  Additionally $\sqrt{4} = 2 \in\Z \subseteq \Q$.  But $4^{1/3} \notin \Q$.  In order to see this let's work with proof by contradiction.  Assume that $4^{1/3}\in\Q$.  Then there must be some pair of nonzero integers $a,b$ so that
+\[
+4^{1/3} = \frac{a}{b} \implies 4 = \frac{a^3}{b^3} \implies a^3 = 4b^3.
+\]
+
+
+Now we know that the product of evens is even and the product of odds is odd, which means an even integer raised to any positive power will remain even.  Since $4b^3$ is even, this means $a^3$ is even which means $a$ is also even.  Thus there must exist some integer $k$ so that
+\[
+a= 2k  \implies a^3 = (2k)^3 = 8 k^3 = 4b^3.
+\]
+
+Now we can cancel a copy of $4$ on both sides and we see that $b$ must also be even.  This is not allowed, since we have found a common divisor of $a$ and $b$.  But since this is a fraction we can assume without loss of generality that it must be in lowest terms.  When $a$ and $b$ share a divisor of $2$ they are not in lowest terms.  This is our contradiction and therefore $4^{1/3}\notin \Q$ and so the overall statement is false with $r=4$ providing a sufficient counterexample.
+
+\newpage
+
+
+Problem 4. Prove the following or give a counterexample:
+
+\[
+\text{For every rational number } r \text{ there exists an integer } n>0 \text{ so that } r^n \in \Z
+\]
+
+
+\vspace{.5in}
+
+Solution:  There is a simple counterexample to this as well.  Consider $r= \frac{1}{2}$.  Since $n>0$ we have
+\[
+0 < \frac{1}{2}^n <1.
+\]
+
+There is no integer between 0 and 1.  So this $r$ will never meet the criterion above.
+
+\newpage
+
+Problem 5. Let $\{A_n \}$ be a collection of sets indexed by $n>0 $ where 
+\[
+A_n = \{ k\in\Z | -n \le k \le n^2\}
+\]
+
+
+
+(a) what is 
+\[
+\bigcup_{j=1}^{10} A_j ?
+\]
+
+(b) How many elements in $A_2 \cap A_3$?
+
+\vspace{.5in}
+ 
+Solution:\\
+
+(a) This is the union $A_1 \cup A_2 \cup \dots \cup A_{10}$.  Looking at the form of these sets we see
+\[
+A_i \subseteq A_{i+1}, \forall i>0.
+\]
+
+So the union is simply $A_{10}$.  We may write this explicitly as
+\[
+A_{10} = \{k\in\Z | -10 \le k \le 100\}
+\]
+
+
+(b) Again since we have the subset relation 
+\[
+A_i \subseteq A_{i+1}
+\]
+
+we know
+
+\[
+A_2 \cap A_3 = A_2 = \{-2,-1,0,1,2,3,4\} \implies |A_2|=7
+\]
+
+\newpage
+
+
+Problem 6. Let $f:\Z \rightarrow \Z$ be the function
+\[
+f(n) = 1 - 2n + n^2
+\]
+(a) Is $f$ one to one (injective)?\\
+
+(b) Is $f$ onto (surjective)?
+
+\vspace{.5in}
+
+Solution:
+
+(a) This function is not injective since $f(0) = 1 = f(2)$ but $0\ne 2$.\\
+
+(b) This function is not onto.   We may rewrite this as
+\[
+f(n) = 1 - 2n + n^2 = (n-1)^2 \ge 0
+\]
+
+This function is never negative and so we have empty preimages.  In particular
+\[
+f^{-1}(-1) = \emptyset
+\]
+
+\newpage
+
+Problem 7: Let $C_3$ be the cyclic graph on three vertices.  Prove that $C_3$ is not a subgraph of $K_{n,m}$ for any complete bipartite graph where $n,m > 2$.
+
+\vspace{.5in}
+
+Solution:  $C_3$ cannot be a subgraph of a complete bipartite graph since all the vertices are adjacent to each other.  If we try to separate the vertices into groups with no adjacencies we will fail.  we can show this by exhaustion.  Let's label the vertices $v_1, v_2, v_3$.  Since $v_1$ is adjacent to $v_2$ they must be in separate classes in $K_{n,m}$.  Now $v_2$ is adjacent to $v_3$ so $v_3$ must be in a different class than $v_2$.  There are only two classes, so $v_1$ must be in the same class as $v_3$.  These vertices, however, are adjacent, and so they must be in different classes.  Unfortunately, we only have two classes.  By the pigeonhole principle it is impossible to make $C_3$ a subgraph of $K_{n,m}$.  Just as a side note, however, $C_4$ is not only a subgraph of $K_{2,2}$ they are the same graph.
+
+\newpage
+
+Bonus: The genus of a graph is defined to be the surface with the least number of holes necessary to draw a graph without self intersection.  $K_4$ for example can be drawn in the plane (as a triangle with a central vertex).  $K_5$ however, cannot.  The smallest graph which is genus two is $K_8$.  Draw $K_8$ on a surface with two holes.  Draw $K_7$ on a surface with one hole (A doughnut).
+
+
+\end{document}

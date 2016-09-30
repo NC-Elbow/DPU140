@@ -1,0 +1,140 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Final Exam Maths 140 Winter 2016 \\ DePaul University\\Dr. Alexander}
+\maketitle
+You have 135 minutes to complete this exam.  Calculators are allowed, but no other electronic devices are permitted.  Please write all your answers in complete, legible sentences, and show all your work to receive full credit.  There are seven (7) problems here.  Please solve all of them.  
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    6&\\
+    &\\
+    7&\\
+    &\\
+    Bonus &\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+
+\newpage
+
+
+Problem 1: Give the proper negation of the statement
+
+\[
+\forall x\in \Z \text{ If } x < 10, \text{ then } a|x|+b < 10 a + b  
+\]
+
+\newpage
+
+
+Problem 2: Define a function $f: \R \rightarrow \R$ by
+\[
+f(x) = x^3-x 
+\]
+
+
+(a) Is $f$ one to one (injective)?\\
+
+(b) Is $f$ onto (surjective)?
+
+
+
+\newpage
+
+Problem 3: The following matrix is an adjacency matrix $A$ for a graph $G$.\\
+\[
+A = 
+\begin{bmatrix}
+1 & 1 & 2 & 1 \\
+1 & 0 & 1 & 1 \\
+2 & 1 & 0 & 1 \\
+1 & 1 & 1 & 1 
+\end{bmatrix}
+\]
+\\
+
+(a) Draw the corresponding graph $G$.\\
+
+(b) How many walks of length 3 are there from vertex two $v_2$ to vertex four $v_4$?
+
+
+\newpage
+
+Problem 4: (a) Draw a full binary tree with eight (8) internal vertices.\\
+
+(b) How many terminal vertices does this tree have?\\
+
+(c) List all the descendants of the right child at level one.
+
+
+\newpage
+
+Problem 5: How many integers in 1,...,200 are divisible by 2,3, or 7?
+
+
+\newpage
+
+Problem 6: Suppose we have a chessboard (standard 8 by 8)in which we have removed both white corners leaving 62 spaces.  Is it possible to cover it with 31 dominoes so that no two dominoes overlap and every domino is fully on the board?  If so give an example of such a covering.  If not, explain why not.  If so, in how many ways can we produce such a covering?
+
+
+\newpage
+
+Problem 7: Does the graph $K_{4,6}$ have a Hamilton(ian) circuit?  Does it have an Euler(ian) circuit? If so, show each circuit.  If not, explain why not.
+
+
+
+
+\newpage
+
+Bonus: Using the Binomial Theorem compute the following sum:
+\[
+\sum_{k=0}^{N}(-1)^k \binom{N}{k} 3^{2N-2k}2^{2k}
+\]
+
+
+\vspace{.5in}
+
+Bonus 2: Suppose we have a system of logic which allows three values rather than the customary two.  These values should be ``true," ``false," and ``unknown."  What are the proper analogs or ``and," ``or," and the conditional?  Is it possible to construct all logical operations on two three valued variables with these three and ``not?"  How many truth tables are there on two variables?
+
+\end{document}
