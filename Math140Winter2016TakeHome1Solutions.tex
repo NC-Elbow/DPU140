@@ -1,0 +1,482 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Takehome Exam 1 Maths 140 Winter 2016 \\ DePaul University\\Dr. Alexander}
+\maketitle
+Please complete all five problems and attempt the Bonus.  Write all answers in complete, legible sentences in order to receive full credit.
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    Bonus&\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+\newpage 
+Problem 1. The valid argument forms we have seen generally take the form
+\[
+\text{ Hypothesis } A, \text{ hypothesis } B, \text{ therefore } C
+\]
+This can be rewritten in as a single statement:
+\[
+(A\wedge B) \rightarrow C \equiv \tau
+\]
+
+For example the classic modus ponens appears as
+\[
+(p \wedge(p\rightarrow q)) \rightarrow q \equiv \tau.
+\]
+
+(a) Establish that the following argument form is valid by any method you choose.
+\begin{itemize}
+\item[] $p\rightarrow q$\\
+\item[] $q \rightarrow (r \wedge s)$\\
+\item[] $\sim r \vee (\sim t \vee u)$\\
+\item[] $p\wedge t$\\
+\item[] $\therefore u$
+\end{itemize}
+ 
+You may use a truth table, deduction with valid argument forms, or a combination thereof.\\
+
+\vspace{1in}
+
+Solution:  Let's simply use our valid argument forms to solve this.  Since we have $p\wedge t$ we know that both $p$ and $t$ are true.  In this case, we look back to the first argument and see:\\
+
+\begin{itemize}
+\item[] $p\rightarrow q$\\
+\item[] $p$\\
+\item[] $\therefore q$
+\end{itemize}
+
+By the modus ponens.
+
+Now we have that $q$ is true and the hypothesis, $q\rightarrow (r\wedge s)$ which tells us $r\wedge s$ is true.  Again, by specialization both $r$ and $s$ are true.  Now we're left with the simplified argument form:
+
+\begin{itemize}
+\item[] $\sim r \vee \sim t \vee u$\\
+\item[] $r\wedge t\wedge s$\\
+\item[] $\therefore u$
+\end{itemize}
+
+This is a simple elimination with a superfluous $s$.  Thus $u$ is true and the argument form is valid.
+
+\vspace{1in}
+
+(b) Rewrite this argument form as a single statement. Then reduce it by DeMorgan's laws if possible.
+
+\vspace{.5in}
+ 
+Solution:
+We simply ``disjoin" all the hypothesis and give them as a conditional for the conclusion.  Thus:
+\[
+(p\rightarrow q)\wedge (q \rightarrow (r\wedge s)) \wedge (\sim r \vee \sim t\vee u)\wedge (p\wedge t) \rightarrow u
+\]
+
+In order to reduce this by DeMorgan's laws let's consider the following:
+
+\[
+(p\rightarrow q)\wedge p
+\]
+This is our classic modus ponens written as the disjuntion of two hypotheses.
+
+Rewriting this we have
+\[
+(\sim p \vee q) \wedge p \equiv (\sim p \wedge p) \vee (q \wedge p) \equiv p\wedge q
+\]
+
+So, we can reduce all the modus ponens arguments so disjuntions.
+\[
+(p \rightarrow q)\wedge (p\wedge t) \equiv p\wedge q \wedge t
+\]
+and using the second hypothesis:
+\[
+(p\wedge t)\wedge q \wedge (q\rightarrow (r\wedge s)) \equiv p\wedge q\wedge t\wedge r\wedge s
+\]
+
+Finally we have to reduce $\sim r vee \sim t \vee u$ with the other hypothesis. Generally speaking
+\[
+(\sim r \vee x)\wedge r \equiv (r\wedge \sim r)\vee (r\wedge x)
+\]
+
+So our final reduction tells us the single statement can be written as 
+\[
+(p\wedge q\wedge r\wedge s\wedge t\wedge u) \rightarrow u
+\]
+
+
+
+\vspace{.5in}
+
+(c) Negate the statement you wrote in part (b).  Give an example (using actual statements for the variables) to show the negation does not yield a valid argument.
+
+\vspace{.5in}
+
+Solution:  This is simple as the negation of a conditional is simply ``but not" in English terms.
+
+\[
+\sim (p\wedge q\wedge r\wedge s\wedge t\wedge u) \rightarrow u \equiv (p\wedge q\wedge r\wedge s\wedge t\wedge u) \wedge \sim u
+\]
+
+Hence we have arrived at a contradiction since we have 
+\[
+\text{things} \wedge (u\wedge \sim u) \equiv \text{things}\wedge \mathfrak{c} \equiv \mathfrak{c}
+\]
+
+
+An easy example of such variables would be
+\begin{itemize}
+\item[] $p$ = ``$n > 10$"\\
+\item[] $q$ = ``$n > 9$"\\
+\item[] $r$ = ``$n > 8$"\\
+\item[] $s$ = ``$n > 7$"\\
+\item[] $t$ = ``$n > 6$"\\
+\item[] $u$ = ``$n > 5$"\\
+\end{itemize}
+Thus the statement:
+\[
+(n>10)\wedge (n>9)\wedge (n>8)\wedge (n>7)\wedge (n>6)\wedge (n>5)\rightarrow (n>5)
+\]
+is true.
+
+\newpage
+
+
+Problem 2. Since we are dealing with ``two-valued" logic it necessitates all variables being bits.  As mentioned in class this means we could just as easily write ``T" and ``F" as 1 and 0 (or 0 and 1 depending on circumstances).  For this problem we will take false as zero and true as 1.  Thus, for example, our table for ``and" becomes
+
+\begin{center}
+\begin{tabular}{c | c | c | c | c }
+$p$ & $q$ & $p\wedge q$ & min$(p,q)$ & $p\cdot q$\\ 
+\hline
+0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0\\
+1 & 0 & 0 & 0 & 0\\
+1 & 1 & 1 & 1 & 1
+\end{tabular}
+\end{center}
+
+
+Notice that we've given the table in a somewhat reverse format from that of the class, but it's exactly the same operation.  Also notice, that we now have several ways of expressing ``and." When we use only 0 and 1, we can multiply or take min/max, or add.\\
+
+By this setup, negation becomes
+\[
+\sim p \equiv 1 - p.
+\]
+
+The mod 2 addition is given by the symbol ``$\oplus$" which has the table
+
+\begin{center}
+\begin{tabular}{c | c | c | c }
+$p$ & $q$ & $p\oplus q$ & $p$ xor $q$\\ 
+\hline
+0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 
+\end{tabular}
+\end{center}
+
+This is essentially adding ``even" with ``odd." Here, you can think of ``even" as zero, so the fourth row says ``odd + odd = even."\\
+
+One operation that we can't do on True/False is exponentiation.  Consider
+\[
+p^q
+\]
+
+All of these make sense except possible $0^0$ which is technically an indeterminate form, but we simply say $0^0 = 1$.  This is a fact we can derive from calculus.  I don't need you to derive it, simply take that as an axiom for now.\\
+
+\vspace{.25in}
+
+(a) Write the truth table for $p^q$.  What is the equivalent truth table of the 16 classical ones we showed in class?
+
+\vspace{.5in}
+
+Solution:  This corresponds to $q\rightarrow p$.
+
+
+\begin{center}
+\begin{tabular}{c | c | c | c }
+$p$ & $q$ & $p^q$ & $q\rightarrow p$\\ 
+\hline
+0 & 0 & 1 & 1 \\
+0 & 1 & 0 & 0 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 1 & 1 
+\end{tabular}
+\end{center}
+
+
+
+\vspace{.25in}
+
+(b) Using our new found operation of exponentiating bits, show directly
+\[
+p^{q^r} \neq p^{q\cdot r}
+\]
+
+What is the classical operation we've shown (in terms of statements in T/F)?
+
+
+\vspace{.5in}
+
+Solution: Since we just discovered that $p^q \equiv q\rightarrow p$  we now know
+\[
+p^{q^r} \equiv (r\rightarrow q) \rightarrow p
+\]
+and 
+\[
+p^{q\cdot r} \equiv (r\wedge q) \rightarrow p
+\]
+
+These are not equivalent statements as we can consider the case where $p=q=0$ and $r=1$.  These give different values.
+
+\vspace{.25in}
+
+(c) Show that exponentiation distrubtes over multiplication (i.e.)
+\[
+(p\cdot q)^r \equiv p^r \cdot q^r
+\]
+What is the classical version of this?
+
+
+\vspace{.5in}
+
+Solution: The classical version is
+
+\[
+r \rightarrow (p\wedge q) \equiv (r\rightarrow p)\wedge (r\rightarrow q).
+\]
+
+Using DeMorgan's laws we have
+\[
+r\rightarrow(p\wedge q) \equiv \sim r \vee (p\wedge q) \equiv (\sim r \vee p) \wedge (\sim r \vee q) \equiv (r\rightarrow p)\wedge (r\rightarrow q).
+\]
+
+\newpage
+
+Problem 3. 
+
+(a) Show that $\leftrightarrow$ is associative. That is
+\[
+(p \leftrightarrow q) \leftrightarrow r \equiv p \leftrightarrow ( q \leftrightarrow r)
+\]
+
+\vspace{.5in}
+
+Solution:
+
+The truth table is given as such:
+
+
+\begin{center}
+\begin{tabular}{c | c | c | c | c}
+$p$ & $q$ & $r$ & $(p\leftrightarrow q) \leftrightarrow r$ & $p\leftrightarrow (q \leftrightarrow r)$\\ 
+\hline
+T & T & T & T & T\\
+T & T & F & F & F\\
+T & F & T & F & F\\
+T & F & F & T & T\\
+F & T & T & F & F\\
+F & T & F & T & T\\
+F & F & T & T & T\\
+F & F & F & F & F\\
+\end{tabular}
+\end{center}
+
+\vspace{.5in}
+
+(b) Show $\rightarrow$ is not associative.  
+\[
+p \rightarrow (q \rightarrow r) \neq (p \rightarrow q) \rightarrow r
+\]
+
+\vspace{.5in}
+
+Solution: A simple counterexample is given in the case
+\[
+p = q = r = F.
+\]
+
+\vspace{.5in}
+
+(c) Show that $\rightarrow$ distributes over $\wedge$.
+
+\vspace{.5in}
+
+Solution: This is an exact repeat of question 2 part (c).
+
+
+\vspace{.5in}
+
+(d) Consider the three variable statement
+\[
+p\wedge q \wedge r
+\]
+Show by using DeMorgan's laws that
+\[
+\sim(p\wedge q\wedge r) \equiv (p\wedge q) \rightarrow \sim r
+\]
+
+Show that the negation of the conjunction means any two  variables can imply the negation of the third.
+
+\vspace{.5in}
+
+
+Solution: The basic two principles here are commutativity of $\wedge$ and the negation of a conditional.  Simply:
+\[
+\sim (A\rightarrow B) \equiv A \wedge \sim B
+\]
+In this case we may treat $A$ as $p\wedge q$, $p\wedge r$, or $q\wedge r$.  Thus we have the equivalences:
+
+\[
+(p\wedge q)\rightarrow \sim r \equiv (p\wedge r)\rightarrow \sim q \equiv (r\wedge q)\rightarrow \sim p
+\]
+
+
+\newpage
+
+Problem 4. (a) Prove that the sum of a finite number of rational numbers is a rational number.  \\
+Hint: In this problem the hypotheses are extremely important.
+
+\vspace{.5in}
+
+Solution: We can prove this directly.  Let $r_1,\dots, r_n$ be rational numbers.  Then by definition there exist integers $a_1,b_1,a_2,b_2,\dots, a_n,b_n$. so that
+\[
+r_i = \frac{a_i}{b_i}, \text{ where } b_i \ne 0.
+\]
+
+Then our addition is given as
+\[
+r_1+r_2+\cdots + r_n = \frac{a_1}{b_1}+\dots+\frac{a_n}{b_n} = \frac{a_1(b_2\cdots b_n)+ a_2(b_1b_3\cdots b_n)+ \cdots a_n(b_1b_2\cdots b_{n-1})}{b_1\cdot b_2 \cdots b_n}
+\]
+
+We know the numerator and denominator are both interegers because the integers are closed under addition and multiplication.  We also know the denominator is nonzero by the zero product property (of interegers).  Thus the sum of a finite number of rational numbers is rational.
+
+\vspace{.5in}
+
+(b) Now give an example of an infinite number of rational numbers whose sum is an irrational number.\\
+
+\vspace{.5in}
+
+\[
+\sum_{j=0}^{\infty} \frac{2^j}{j!} = e^2 \notin \Q
+\]
+
+\vspace{.5in}
+
+(c) Give two examples of pairs of irrational numbers $(a,b)$ so that 
+\[
+(1) a^b \in \Q
+\]
+
+\[
+(2) a^b \notin \Q
+\]
+
+\vspace{.5in}
+
+Solution:  The first pair is easy to construct using logarithms.  It is well known that $e$ is irrational.  In fact, $e$ is transcendental, which basically means, really, really, really irrational.  Additionally, $\ln(n)$ is irrational for any integer $n>1$.  Then the first pair is
+
+\[
+e^{\ln(n)} = n \in \Q
+\]
+
+The second pair is slightly trickier.  But using the properties of logarithms we can construct this rather easily.
+Consider 
+\[
+\frac{\ln(n)}{2} = \ln(2^{1/2})
+\]
+which we know to be irrational since $\ln(2)$ is irrational and $1/2$ is rational.  In class we proved that the product of a rational with an irrational is irrational.
+Therefore consider
+\[
+e^{\ln(2)/2} = e^{\ln(\sqrt{2})} = \sqrt{2} \notin \Q
+\]
+
+
+
+\newpage
+
+Problem 5. 
+
+A Mersenne prime is a prime of the form $2^p -1$ where $p$ itself is a prime.  It is not known whether or not there are infinitely many Mersenne primes.  The current thinking indicates that there are only finitely many.  In fact, only 48 are known.  It is now know which primes yield Mersenne primes, but not all primes do, for example
+\[
+2^{11}-1 = 2047 = 23 \cdot 89 
+\]
+So this is clearly not prime.  In this case we know, being prime is necessary but not sufficient.  So, prove the following statement.\\
+
+\vspace{.5in}
+
+``If $n$ is not prime then $2^n-1$ is not prime."\\
+
+Hint: Remember how to factor differences of powers... 
+\[
+a^2-b^2 = (a+b)(a-b)
+\]
+\begin{center} and \end{center}
+\[
+a^3 - b^3 = (a-b)(a^2+ab+b^2)
+\]
+\begin{center} and \end{center}
+\[
+\sum_{j=0}^{n} r^j = \frac{r^{n+1}-1}{r-1}, n\ge 0, r\ne 0,1.
+\]
+
+
+\vspace{.5in}
+
+Solution:  Consider the last hint.
+\[
+1+ r + r^2 + \dots + r^{n-1} = \frac{r^n -1}{r-1}
+\]
+If $n$ is not prime then it is composite, which means we can write $n=ab$ where $a$ and $b$ are positive integers greater than 1 and less than $n$.  Then $2^n = 2^{ab} = (2^a)^b$.
+
+Now simply make the substitution $r = 2^a$.  Which tells us
+\[
+1 + 2^a + 2^{2a} + \dots + 2^{(b-1)a} = \frac{2^{ab}-1}{2^a -1} 
+\]
+Which means $2^n-1$ is divisible by $2^a - 1 > 1$ and therefore $2^n -1$ is not prime.
+
+\newpage
+
+Bonus: Give the rules for multiplying even and odd functions and the results thereof.  For example, in integers, ``even times odd is even." How does this work for functions?  What happens when you exponentiate functions with functions?
+
+
+\end{document}

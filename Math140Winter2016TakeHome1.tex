@@ -1,0 +1,241 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Takehome Exam 1 Maths 140 Winter 2016 \\ DePaul University\\Dr. Alexander}
+\maketitle
+You have 90 minutes to complete this exam.  Calculators are allowed, but no other electronic devices are permitted.  Please write all your answers in complete, legible sentences, and show all your work to receive full credit.  There are seven (7) problems here.  You may choose to do any 6 of them.  
+\vspace{1in}
+
+
+%table
+\begin{center}
+  \begin{tabular}{ c | c }
+    Problem & Score\\
+    \hline
+    &\\
+    1&\\
+    &\\
+    2&\\
+    &\\
+    3&\\
+    &\\
+    4&\\
+    &\\
+    5&\\
+    &\\
+    Bonus&\\
+    &\\
+    \hline 
+    &\\    
+    Total& 
+ \end{tabular}
+\end{center}
+
+\newpage 
+Problem 1. The valid argument forms we have seen generally take the form
+\[
+\text{ Hypothesis } A, \text{ hypothesis } B, \text{ therefore } C
+\]
+This can be rewritten in as a single statement:
+\[
+(A\wedge B) \rightarrow C \equiv \tau
+\]
+
+For example the classic modus ponens appears as
+\[
+(p \wedge(p\rightarrow q)) \rightarrow q \equiv \tau.
+\]
+
+(a) Establish that the following argument form is valid by any method you choose.
+\begin{itemize}
+\item[] $p\rightarrow q$\\
+\item[] $q \rightarrow (r \wedge s)$\\
+\item[] $\sim r \vee (\sim t \vee u)$\\
+\item[] $p\wedge t$\\
+\item[] $\therefore u$
+\end{itemize}
+ 
+You may use a truth table, deduction with valid argument forms, or a combination thereof.\\
+
+\vspace{1in}
+
+(b) Rewrite this argument form as a single statement. Then reduce it by DeMorgan's laws if possible.
+
+\vspace{.5in}
+
+(c) Negate the statement you wrote in part (b).  Give an example (using actual statements for the variables) to show the negation does not yield a valid argument.
+
+\newpage
+
+Problem 2. Since we are dealing with ``two-valued" logic it necessitates all variables being bits.  As mentioned in class this means we could just as easily write ``T" and ``F" as 1 and 0 (or 0 and 1 depending on circumstances).  For this problem we will take false as zero and true as 1.  Thus, for example, our table for ``and" becomes
+
+\begin{center}
+\begin{tabular}{c | c | c | c | c }
+$p$ & $q$ & $p\wedge q$ & min$(p,q)$ & $p\cdot q$\\ 
+\hline
+0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0\\
+1 & 0 & 0 & 0 & 0\\
+1 & 1 & 1 & 1 & 1
+\end{tabular}
+\end{center}
+
+
+Notice that we've given the table in a somewhat reverse format from that of the class, but it's exactly the same operation.  Also notice, that we now have several ways of expressing ``and." When we use only 0 and 1, we can multiply or take min/max, or add.\\
+
+By this setup, negation becomes
+\[
+\sim p \equiv 1 - p.
+\]
+
+The mod 2 addition is given by the symbol ``$\oplus$" which has the table
+
+\begin{center}
+\begin{tabular}{c | c | c | c }
+$p$ & $q$ & $p\oplus q$ & $p$ xor $q$\\ 
+\hline
+0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 
+\end{tabular}
+\end{center}
+
+This is essentially adding ``even" with ``odd." Here, you can think of ``even" as zero, so the fourth row says ``odd + odd = even."\\
+
+One operation that we can't do on True/False is exponentiation.  Consider
+\[
+p^q
+\]
+
+All of these make sense except possible $0^0$ which is technically an indeterminate form, but we simply say $0^0 = 1$.  This is a fact we can derive from calculus.  I don't need you to derive it, simply take that as an axiom for now.\\
+
+\vspace{.25in}
+
+(a) Write the truth table for $p^q$.  What is the equivalent truth table of the 16 classical ones we showed in class?
+
+\vspace{.25in}
+
+(b) Using our new found operation of exponentiating bits, show directly
+\[
+p^{q^r} \neq p^{q\cdot r}
+\]
+
+What is the classical operation we've shown (in terms of statements in T/F)?
+
+\vspace{.25in}
+
+(c) Show that exponentiation distrubtes over multiplication (i.e.)
+\[
+(p\cdot q)^r \equiv p^r \cdot q^r
+\]
+What is the classical version of this?
+
+\newpage
+
+Problem 3. 
+
+(a) Show that $\leftrightarrow$ is associative. That is
+\[
+(p \leftrightarrow q) \leftrightarrow r \equiv p \leftrightarrow ( q \leftrightarrow r)
+\]
+
+
+\vspace{.5in}
+
+(b) Show $\rightarrow$ is not associative.  
+\[
+p \rightarrow (q \rightarrow r) \neq (p \rightarrow q) \rightarrow r
+\]
+
+\vspace{.5in}
+
+(c) Show that $\rightarrow$ distributes over $\wedge$.
+
+\vspace{.5in}
+
+(d) Consider the three variable statment
+\[
+p\wedge q \wedge r
+\]
+Show by using DeMorgan's laws that
+\[
+\sim(p\wedge q\wedge r) \equiv (p\wedge q) \rightarrow \sim r
+\]
+
+Show that the negation of the conjunction means any two  variables can imply the negation of the third.
+
+\newpage
+
+Problem 4. (a) Prove that the sum of a finite number of rational numbers is a rational number.  \\
+Hint: In this problem the hypotheses are extremely important.
+\vspace{.5in}
+
+(b) Now give an example of an infinite number of rational numbers whose sum is an irrational number.\\
+
+\vspace{.5in}
+
+(c) Give two examples of pairs of irrational numbers $(a,b)$ so that 
+\[
+(1) a^b \in \Q
+\]
+
+\[
+(2) a^b \notin \Q
+\]
+
+\newpage
+
+Problem 5. 
+
+A Mersenne prime is a prime of the form $2^p -1$ where $p$ itself is a prime.  It is not known whether or not there are infinitely many Mersenne primes.  The current thinking indicates that there are only finitely many.  In fact, only 48 are known.  It is now know which primes yield Mersenne primes, but not all primes do, for example
+\[
+2^{11}-1 = 2047 = 23 \cdot 89 
+\]
+So this is clearly not prime.  In this case we know, being prime is necessary but not sufficient.  So, prove the following statement.\\
+
+\vspace{.5in}
+
+``If $n$ is not prime then $2^n-1$ is not prime."\\
+
+Hint: Remember how to factor differences of powers... 
+\[
+a^2-b^2 = (a+b)(a-b)
+\]
+\begin{center} and \end{center}
+\[
+a^3 - b^3 = (a-b)(a^2+ab+b^2)
+\]
+\begin{center} and \end{center}
+\[
+\sum_{j=0}^{n} r^j = \frac{r^{n+1}-1}{r-1}, n\ge 0, r\ne 0,1.
+\]
+
+
+
+\newpage
+
+Bonus: Give the rules for multiplying even and odd functions and the results thereof.  For example, in integers, ``even times odd is even." How does this work for functions?  What happens when you exponentiate functions with functions?
+
+
+\end{document}
