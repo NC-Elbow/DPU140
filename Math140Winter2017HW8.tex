@@ -1,0 +1,129 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 8 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+We'll begin exploring some techniques in elementary combinatorics.  We'll do some arithmetic counting, some multiplicative counting, and a few first problems in discrete probability, including calculating the likelihood that a conspiracy theory is a sound argument...
+
+\section{Problems}
+
+%Percentage of primes less than 100, 1000\\
+%probability of three reds in 7,7,7\\
+%birthday problem\\
+%crazy plane seating\\
+%permutations/combinations\\
+%percentage graph with euler/hamilton\\
+%chessboard and dominoes\\
+%pigeonhole/number matching\\
+%PINs on n digit
+
+Problem 1.  In order to calculate how many prime numbers we have below a certain number $N$ we must check all the primes $p\le \sqrt{N}$. for divisibility.  For example, let's check whether 101 is prime or not.  
+\[
+10< \sqrt{101} < 11 \implies p\in\{2,3,5,7\}
+\]
+
+We only need to check whether or not 101 is divisible by 2,3,5, or 7.  It is not divisible by any, and thus it is prime. Now consider the following sets:
+\begin{eqnarray}
+A_2 &=& \{ 4,6,8,10,12,\dots 100\} \nonumber \\
+A_3 & = & \{6,9,12,15,\dots, 99 \} \nonumber \\
+A_5 & = & \{ 5,10,15,\dots, 100\} \nonumber \\
+A_7 & = & \{14,21,28,\dots, 98 \} \nonumber
+\end{eqnarray}
+
+That is $A_p$ is the set of all integers $\{n | p<n\le 100 \wedge p|n \}$.
+
+(a) Compute
+\[
+| A_2 \cup A_3 \cup A_5 \cup A_7 |
+\]
+
+(b) What is the probability the a chosen integer at random from the set $\{2,3,4,5,6,\dots,100\}$ is prime?\\
+
+(c) What is the probability that a randomly chosen integer between 2 and 200 is prime?\\
+
+(d) Give an expression (no need to evaluate) to calculate the probability that a randomly chosen integer between 2 and $N$ is prime.
+
+\newpage
+
+Problem 2. Suppose we have 21 marbles in a bowl.  7 each of three different colors, red, blue, and yellow.  What is the probability of picking out:\\
+
+(a) 3 red marbles in a row?\\
+
+(b) 1 marble of each color in three picks?\\
+
+(c) 2 marbles of each color in six picks?
+
+\newpage
+
+Problem 3. Consider a chess board of size $2n\times 2n$.  Now remove two opposite corners (northeast and southwest xor northwest and southeast).  In how many ways can we cover (as a function of $n$) this modified chessboard by dominoes?  Each domino covers two adjacent squares, and cannot be broken for the sake of this counting exercise.\\
+
+Note: It is important that the boards have an even number of squares.  If we had chosen an odd number of squares (eg $7\times 7$) we would have ``odd times odd" number of squares to be covered by dominoes which obviously leaves one square empty.
+
+\newpage
+
+Problem 4. Recently PINs have become more secure by using 6 digits rather than 4.  Let's work out the combinatorics of 6 digit PINs.\\
+
+(a) How many total 6 digit PINs are possible?\\
+
+(b) How many 6 digit PINs repeat exactly one digit?\\
+
+(c) How many repeat exactly 2 digits?\\
+
+(d) Now suppose someone gets a hold of your phone or debit card and can see the fingerprints over the digits.  If the other party sees 6 fingerprints, how many options must (s)he try in order to guess the correct PIN?\\
+
+(e) Now suppose there are only 5 fingerprints, in that exactly one digit is repeated, but it is not known which digit is repeated, nor in which order the digits go.  How many combinations must the ``dozday" (thief in Farsi) try to guess the correct PIN?\\
+
+(Bonus) Finish the calculation for all number of repeated digits, and for 8 digit PINs.
+
+\newpage 
+
+Problem 5. Consider the set $S$ of simple graphs on 5 vertices.\\
+
+(a) How many elements are in $S$?\\
+
+(b) How many graphs in $S$ have Euler(ian) circuits?\\
+
+(c) What is the probability that a graph selected at random from $S$ does not contain an Euler(ian) circuit?
+
+
+
+\newpage
+
+\section{Notes}
+
+Problem 1 get us thinking about methods of factoring integers without actually having to know how to divide.  As we mentioned all the way back in week 2, integers are closed under two (``natural") operations, addition and multiplication.  Division certainly doesn't allow closure, and so we count using multiplication and addition.  By subtracting from the total (i.e. counting set complements) we can actually begin computing the probability of landing on a prime number.  It may be of some interest to you to consider Euler's totient function:
+\[
+\phi(n) = n\prod_{p|n}\left(1 - \frac{1}{p}\right)
+\]   
+which calculates how many positive integers less than $n$ share no common factors with $n$.  This function is incredibly useful in finding private keys for public key encryption.  
+
+Problem 2 gets us thinking about conditional probabilities.  With each pick we make the size of our state space changes as well the number of successes.  This makes counting probabilities slightly more interesting.  Consider the birthday problem, for example, where we ask, given $n$ people in a room, where $n<366$ what is the probability that two people share a birthday?  The answer may surprise you.  This is because our state space changes with each pick.
+
+Problem 3 is the precursor to tetris.  If we built higher dimensional chess boards with more colors we could extend this problem arbitrarily,  the funny thing is that the solutions are exactly analogous to this problem, without actually having to visualize higher dimensions, we can produce some rigorous results with the proper application of the pigeonhole principle.  
+
+Problem 4 is inspired by an article from several years ago which claimed that repeating one of your digits in your PIN made your phone 50\% more secure.  If we do a simple counting argument where the digits are unknown this argument falls quickly.  10000 total, 5040 with no repeated digits.  However, if the digits are known there are 24 unique with no repeats, but 36 with repeats.  So the hypotheses make an enormous difference in this case.  However, 4 digit PINs are outdated, so we must be diligent students and modernize the results to 6 digit PINs.
+
+\end{document}

@@ -1,0 +1,132 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 9 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+In this problem set we'll explore some cominatorial techniques surrounding the binomial theorem, and binomial coefficients.
+
+
+\section{Problems}
+
+Problem 1.  Show the following equations to be true algebraically:\\
+
+(a)
+\[
+\binom{n}{k} = \binom{n}{n-k}
+\]
+
+(b) 
+\[
+\binom{n+1}{k} = \binom{n}{k} + \binom{n}{n-k}
+\]
+
+(c) Give a combinatorial argument for why (a) is true.\\
+
+(d) Give a combinatorial argument for why (b) is true.
+
+\newpage
+
+Problem 2. Suppose we have a process with two outcomes, (this could be a coin, an election, a sporting event, a debate, etc) One outcome is 70\% likely, the other 30\% likely.  Let's call the more likely outcome $M$ and the less likely outcome $L$.  If we simulate the process 20 times calculate:\\
+
+(a) $P(M=14)$.\\
+
+(b) $P(L=10)$\\
+
+(c) $P(L<10)$\\
+Note: This requires a sum of ten items.\\
+
+(d) $P(13\le M \le 15)$.\\
+
+(e) $P(12\le M \le 16)$.
+
+
+
+\newpage
+
+Problem 3. Consider an argument form with 7 variables.\\
+
+(a) How many possible inputs do we have?\\
+
+(b) How many possible outputs are there?\\
+
+(c) Conspiracy theorists often give long statements with many variables in order to sound more convincing.  Sometimes conspiracy theorists get the right answer, but their logic is flawed.  Suppose every statement in 7 variables is equally likely.  What is the probability that a conspiracy theorist has chosen ``the correct" one.  I.e. they've made exactly one statement.  How likely is it that they have chosen a valid argument form and made a sound arguement?\\
+Hint: You should get something near 3 in $10^{39}$.
+
+
+(d) How likely is it that given $n$ variables that a conspiracy theorist has chosen the correct argument?\\
+
+(e) How does this analysis change if we give a ``benefit of the doubt" to conspiracy theorists and assume that every statement in the form  ``if $p$ then $q$" is 90\% likely?
+
+\newpage 
+
+Problem 4. DeMoivre's theorem tells us that given any positive integer $n$
+\[
+(\cos(\theta)+ i \sin(\theta))^n = \cos(n\theta) + i \sin(n\theta)
+\]
+
+Use the binomial theorem and DeMoivre's theorem to prove the following:\\
+
+(a) $\cos(3\theta)$\\
+
+(b) $\cos(5\theta)$\\
+
+(c) $\sin(4\theta)$.
+
+\newpage
+
+Problem 5. If we sum more than two things and exponentiate, we don't have a binomial theorem, we have a multinomial theorem
+
+\[
+(x_1 + x_2 + \cdots + x_k)^n = \sum_{i_1+\cdots i_k = n} \binom{n}{i_1,i_2,\dots,i_k}x_1^{i_1}\cdots x_k^{i_k}
+\]
+
+Where the multinomial coefficient
+\[
+\binom{n}{i_1,i_2,\dots,i_k} = \frac{n!}{(i_1)!(i_2)!\cdots(i_k)!}
+\]
+
+(a) Suppose we role three dice.  What is the probability that we roll $\{1,2,3\}$?\\
+
+(b) What is the probability that we roll exactly 6?\\
+
+(c) What is the probability that we roll three in a row ($\{1,2,3\},\{2,3,4\},\{3,4,5\},\{4,5,6\}$)?
+
+\newpage
+
+\section{Notes}
+
+This assignment allows us to simply scratch the surface of using the binomial theorem.  One of the most important things that comes from this theorem is the binomial distribution in probability.  Suppose we have two probability events $p$ and $q$ whose sum is 1.  Then we have
+\[
+1^n = (p+q)^n = \sum_{j=0}^{n}\binom{n}{j}p^{n-j}q^j
+\]
+
+Which gives us the probability of $j$ failures and $n-j$ successes.  Interestingly though, as $n$ gets large, the difficulty of computing this distribution stays the same, but even more interestingly it becomes an exceptional approimation for the continuous version
+\[
+N(\mu,\sigma) = e^{-(x-\mu)^2/2\sigma}
+\]
+
+which is the ``bell curve."  Formally this is known as the normal distribution.  Using the central limit theorem, we see that no matter what probability distribution we begin with, after repeating sampling it converges to the normal distribution, which is difficult to compute, but easy to approximate (to arbitrary precision) by the binomial distribution.  The multivariable version is approximated by the multinomial theorem.
+\end{document}

@@ -1,0 +1,155 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 7 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+In this problem we'll explore using matrices to compute lengths of walks on graphs.  We'll look at binary trees, and some related questions.
+
+\section{Problems}
+
+Problem 1.  Consider $G_4$ from the previous homework.  This graph is built by ``gluing" two full binary trees of height 3 together (there are four levels, but the ``first" level is labeled as level zero).  Generally speaking, given any $n>0$ we build $G_n$ in the same way.  ``Glue" together two full binary trees of height $n-1$.\\
+
+(a) How many vertices are in $G_n$?\\
+
+(b) How many edges are in $G_n$?\\
+
+(c) Now consider the same type of gluing, but with full trees of $k$ vertices.  A full ternary tree has three children at every vertex.  How many vertices are in $G(k)_n$?\\
+
+(d) How many edges are in $G(k)_n$?\\
+
+Hint: Parts (a) and (b) are $G(2)_n$ which is not standard notation, but that's what we'll use for this problem.  Part (c) is basically part (a) with 2 replaced by $k$, but there may be a small detail which changes the overall result just slightly.  Don't expect something as simple as $k^{n-1} + k^{n-2}$.
+
+\newpage
+
+Problem 2. Consider the following matrix:
+
+\[
+A=
+\begin{bmatrix}
+0&0&0&1&1&1\\
+0&0&0&1&1&1\\
+0&0&0&1&1&1\\
+1&1&1&0&0&0\\
+1&1&1&0&0&0\\
+1&1&1&0&0&0
+\end{bmatrix}
+\]
+
+(a) Draw the graph $G$ with adjacency matrix $A$.  This is a graph that we have seen before, what is its name?\\
+
+(b) Compute $A^4$.  (You may want to find an online matrix calculator to help with this piece.)\\
+
+(c) How many walks of odd length are there from vertex $v_1$ to vertex $v_4$?\\ 
+
+Hint: No multiplication allowed for part (c)!\\
+
+(d) Guess a formula for $A^{2k}$. Give an explanation for your guess.  The point of this part is that we see that via our theorem about walks on graphs we can use the graph of the matrix to compute the same information.
+
+\newpage
+
+Problem 3. Define the cube of dimension $n$ (we'll call it $H_n$ for hypercube, which is the technical name when $n>3$) by the graph with vertices at each of the points
+\[
+(\pm 1,\pm 1, \dots, \pm 1).
+\]
+
+The vertices are connected by an edge if their coordinates differ in exactly in spot.  For example, the square is:
+\[
+v_1 = (-1,-1), v_2= (-1,1), v_3 = (1,-1),v_4=(1,1)
+\]
+so we have the edges
+\[
+(v_1,v_2),(v_1,v_3),(v_2,v_4),(v_3,v_4)
+\]
+
+(a) Draw the graphs for $n=2,3,4$.\\
+
+(b) How many vertices in $H_n$?\\
+
+(c) How many edges in $H_n$?  Think about the degree of each vertex.  This problem takes 2 lines if you apply the theorems correctly.\\
+
+(d) Write the adjacency matrices for $n=2,3,4$.\\
+
+(e) Which of these graph have Eulerian circuits?\\
+
+(f) Which of these graphs have Hamiltonian circuits?
+
+\newpage
+
+Problem 4. Consider a full binary tree $T(n)$ of height $n$.  How big is $n$ so that:\\
+
+(a) $|V(T(n))|$ = number of people in Chicago?\\
+
+(b) $|V(T(n))|$ = number of people currently living?\\
+
+(c) $|V(T(n))|$ = number of particles in the observable universe?
+
+\newpage
+
+Problem 5.  The Collatz conjecture, also known as the Syracuse problem, and several other names, is as simply stated as possible.  Consider the function:
+
+\[
+f: \mathbb{N}\rightarrow\mathbb{N}
+\]
+
+
+defined by
+\[
+f(n) = \left\{\begin{array}{cc}
+n/2, & n \text{ is even.}\\
+3n+1, & n>1 \text{ is odd.}\\
+1, & n=1
+\end{array} \right\}
+\]
+
+The conjecture is that no matter where we start in the whole numbers, we eventually land at 1.  For example, 7 has the following sequence:
+\[
+7,22,11,34,17,52,26,13,40,20,10,5,16,8,4,2,1
+\]
+
+Stated as a graph theory problem we define the graph $G$ by $V(G)=\{1,2,3,4,5,\dots\}$, one vertex for every positive integer and 
+\[
+E(G) = \{(n,m)| f(n)=m \text{ or } f(m)=n\}
+\]
+
+The conjecture is that this graph is a tree. This is known for all number $<10^{18}$.  It is also known that the smallest possible cycle has more than 350,000 vertices.\\
+
+(a) Draw the first part of this tree; all vertices and edges less than or equal to length 5 from 1. \\
+This may take several attempts to make this graph look ``good."\\
+
+
+(b) Now consider this graph to be directed.  Redraw the graph from part (a) with arrows, where $n\rightarrow m$ means $f(n)=m$.
+
+
+
+\newpage
+
+\section{Notes} Many of the problems in this set get us thinking about the magnitude of exponential growth.  Especially problem 4.  It takes shockingly few levels on a full binary tree to achieve the number of particles in the observable universe, only a few hundred.  Think about how few levels of depth we'd need from $G(k)_n$ from problem 1 to achieve similar results.
+
+\par Problem 2 tells us about using graphs to compute matrix products, and vice versa.  This essentially builds in a double check for our algebra.  We now have two methods which differ as much as possible to achieve the same result. Moreover, we have a theorem that backs this up.\\
+
+\par The Collatz conjecture, proposed by Luther Collatz in 1932 is interesting in that it is incredibly easy to state, but no solution is known.  This particular problem is of little known practical use, but we study such problems because solving them requires new mathematical methods to be developed.  The applications of those methods are likely to be deep and broad.  We don't know, but in order to answer in the affirmative a question about a seemingly random graph we need new techniques from other fields of study which are bound to make an impact on areas other than simple integer multiplication!
+
+\end{document}

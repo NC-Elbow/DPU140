@@ -1,0 +1,134 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\usepackage{tikz}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 6 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+In this problem we'll start exploring some properties of graphs while using some interesting examples.  We'll talk about degree, trails, paths, and circuits, bot Eulerian and Hamiltonian.
+
+\section{Problems}
+
+Problem 1 and 2.  In the Homework Assignment section of the D2L course page you will find two files.  First, ContiguousUSAGraph.gif, second MexicoGraph.pdf.  For Problem 1, work with the United States\cite{USA}, for problem 2, work with Mexico.
+
+(a) What is the total degree of the graph?\\
+
+(b) Which vertex has the minimum degree? What is the degree?\\
+
+(c) Which vertex has the maximum degree?  What is the degree?\\
+
+(d) Does this graph have a Hamiltonian circuit?\\
+
+(e) Does this graph have an Eulerian circuit?\\
+
+(f) Does this graph have a Hamiltonian path, that is a walk which touches every vertex exactly once?\\
+
+(g) Give a bipartition of this graph.  This is possible for any graph which is not a complete graph.  Obviously you will not be able to build a complete bipartite graph, but you will be able to construct a bipartite graph nonetheless.\\
+
+\newpage
+
+Problem 3.  Consider the Petersen graph
+
+\[
+\includegraphics[scale = 0.6,angle = 18]{PetersenGraph}
+\]
+
+(a) Show this has no Eulerian circuit.\\
+
+(b) Show that this has no Hamiltonian cicruit.\\
+
+(c) Show that if we remove the top vertex and the thee edges emanating from it, that the resulting graph has a Hamiltonian circuit.
+
+\newpage
+
+Problem 4.  Let $C_n$ be the cyclic graph on $n$ vertices.  Let $K_{n,m}$ be the complete bipartite graph with bipartition of $n$ vertices and $m$ vertices.\\
+
+(a) Suppose $n=2k+1$.  Show that $C_{2k+1}$ can never be a subgraph of a complete bipartite graph.\\
+
+(b) What are the criteria for $C_{2k}$ to be a subgraph of a complete bipartite graph?
+
+\newpage
+
+Problem 5. Consider the graph $G_4$ shown below
+
+\[
+\begin{tikzpicture}
+\node[circle,draw](1L) at (-3,0){1L};
+\node[circle,draw](2L) at (-1,4){2L};
+\node[circle,draw](3L) at (-1,-4){3L};
+\node[circle,draw](4L) at (1,6){4L};
+\node[circle,draw](5L) at (1,2){5L};
+\node[circle,draw](6L) at (1,-2){6L};
+\node[circle,draw](7L) at (1,-6){7L};
+\node[circle,draw](1R) at (9,0){1R};
+\node[circle,draw](2R) at (7,4){2R};
+\node[circle,draw](3R) at (7,-4){3R};
+\node[circle,draw](4R) at (5,6){4R};
+\node[circle,draw](5R) at (5,2){5R};
+\node[circle,draw](6R) at (5,-2){6R};
+\node[circle,draw](7R) at (5,-6){7R};
+\node[circle,draw](1C) at (3,7){1C};
+\node[circle,draw](2C) at (3,5){2C};
+\node[circle,draw](3C) at (3,3){3C};
+\node[circle,draw](4C) at (3,1){4C};
+\node[circle,draw](5C) at (3,-1){5C};
+\node[circle,draw](6C) at (3,-3){6C};
+\node[circle,draw](7C) at (3,-5){7C};
+\node[circle,draw](8C) at (3,-7){8C};
+\foreach \from/\to in {1L/2L,1L/3L,2L/4L,2L/5L,3L/6L,3L/7L,1R/2R,1R/3R,2R/4R,2R/5R,3R/6R,3R/7R,1C/4L,1C/4R,2C/4L,2C/4R,3C/5L,3C/5R,4C/5L,4C/5R,5C/6L,5C/6R,6C/6L,6C/6R,7C/7L,7C/7R,8C/7L,8C/7R}
+\draw (\from)--(\to);
+\end{tikzpicture}
+\]
+
+(a) Does this have a Hamiltonian circuit?\\
+
+(b) Does this have a Hamiltonian path?\\
+
+(c) Redraw this graph with added edges so that this graph has an Eulerian circuit.  What is the minimum number of edges you can add?
+
+
+
+
+\newpage
+
+\section{Notes}
+
+Problems 1,2,5 are all getting us into the idea of solving the famed traveling salesman problem\cite{TSP}.  This is one of the most difficult problems to solve in computer science given a specific graph.  There are a number of methods for solving simplified versions of the problem, however, imagine trying to find the minimum Hamiltonian circuit to visit every city in the contiguous united states.  How many miles would you have to travel if you want to arrive at the geoegraphic center of every city in the country?  The answer is a lot, but what is the number exactly?  This is amongst the most difficult known computer science problems where the existence of a solution is guaranteed.  The problem, is not finding a solution, but rather checking that there is no solution which is more efficient.  This is where the real difficulty arises.
+
+The Petersen graph\cite{Pet} is another interesting example of a graph which is nonplanar.  These are graphs which cannot be drawn in the plane without drawing crossing edges.  Such graphs are said to have a higher genus \cite{Gen}.  If we put the vertices on the surface of a doughnut then we can draw the edge in such a way that the do not cross, but taking advantage of the hole in the doughnut.  The Petersen graph is also interesting in that it is ``3-regular." 
+
+Problem 4 is related to the problem of how we may arrange gears in a pattern, so that they all may turn.  If they gears all turn then they represent vertices on a bipartite graph.  The bipartition is given by those turning clockwise and those turning counterclockwise.
+
+Problem 5 glues two trees together.  This is a fantastic example of a graph on which a classical random walk takes exponentially long to reach the right most vertex beginning at the left most.  In a quantum, which is far beyond our pay grade such graphs can be traversed ``quickly."  This hints at the ability to use quantum computers to solve the traveling salesman problem more quickly than digital computers.
+
+\begin{thebibliography}{99}
+\bibitem[USA]{USA}http://mathworld.wolfram.com/ContiguousUSAGraph.html\\
+\bibitem[TSP]{TSP}http://mathworld.wolfram.com/TravelingSalesmanProblem.html\\
+\bibitem[Pet]{Pet} https://en.wikipedia.org/wiki/Petersen\_graph\\
+\bibitem[Gen]{Gen}http://mathworld.wolfram.com/GraphGenus.html
+
+
+\end{thebibliography}
+
+\end{document}
