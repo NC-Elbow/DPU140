@@ -1,0 +1,323 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 1 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+
+In this assignment we're going to explore some aspects of boolean algebra.  In addition, we'll look into universal gates, and some possibilities of multivalued logic.  Please complete all problems.  You may work with others, but each students must hand in his or her own work.
+
+\section{The Problems}
+
+(Problem 1) In two-valued logic we see that the three gates $(\wedge, \vee, \sim)$ are sufficient to produce any other gate.  For example:
+\[
+p \leftrightarrow q \equiv (p\rightarrow q) \wedge (q\rightarrow p)
+\]
+
+But we know
+\[
+p\rightarrow q \equiv \sim p \vee q
+\]
+
+So we can write ``if, and only if" as
+\[
+p\leftrightarrow q \equiv (\sim p \vee q)\wedge (\sim q\vee p)
+\]
+
+(a) Write the following gates with the three gates $\wedge,\vee,\sim$
+
+\[
+p \text{ xor } q \equiv 
+\]
+
+\[
+\tau \text{ (tautology) and } c \text{ (contradiction)} 
+\]
+
+
+(b) Furthermore we can reduce our universal set to $(\wedge,\sim)$ or $(\vee,\sim)$.  So let's use only $(\wedge,\sim)$ and rewrite the following
+
+\[
+p \vee q = 
+\]
+
+\[
+p\rightarrow q \equiv
+\]
+
+\[
+\tau \equiv
+\]
+
+\[
+p \leftrightarrow q \equiv
+\]
+
+(c) Repeat part (b) with the set $(\vee,\sim)$, except the first piece should be
+\[
+p\wedge q \equiv
+\]
+
+(d) Good news, everyone!  We can reduce further to a single universal gate $NAND$ or $NOR$.
+Let's look at $NAND$
+\[
+p \text{ NAND } q \equiv \sim(p\wedge q)
+\]
+
+Let's give the first, and possibly most important use for NAND.
+\[
+p \text{ NAND } p \equiv \sim p
+\]
+
+Rewrite the following gates with only NAND.  
+
+\[
+p \wedge q
+\]
+
+\[
+p \rightarrow q
+\]
+
+\[
+\tau, c
+\]
+
+\[
+p \leftrightarrow q
+\]
+
+\newpage
+
+(Problem 2) Since we are dealing with ``two-valued" logic it necessitates all variables being bits.  As mentioned in class this means we could just as easily write ``T" and ``F" as 1 and 0 (or 0 and 1 depending on circumstances).  For this problem we will take false as zero and true as 1.  Thus, for example, our table for ``and" becomes
+
+\begin{center}
+\begin{tabular}{c | c | c | c | c }
+$p$ & $q$ & $p\wedge q$ & min$(p,q)$ & $p\cdot q$\\ 
+\hline
+0 & 0 & 0 & 0 & 0\\
+0 & 1 & 0 & 0 & 0\\
+1 & 0 & 0 & 0 & 0\\
+1 & 1 & 1 & 1 & 1
+\end{tabular}
+\end{center}
+
+
+Notice that we've given the table in a somewhat reverse format from that of the class, but it's exactly the same operation.  Also notice, that we now have several ways of expressing ``and." When we use only 0 and 1, we can multiply or take min/max, or add.\\
+
+By this setup, negation becomes
+\[
+\sim p \equiv 1 - p.
+\]
+
+The mod 2 addition is given by the symbol ``$\oplus$" which has the table
+
+\begin{center}
+\begin{tabular}{c | c | c | c }
+$p$ & $q$ & $p\oplus q$ & $p$ xor $q$\\ 
+\hline
+0 & 0 & 0 & 0 \\
+0 & 1 & 1 & 1 \\
+1 & 0 & 1 & 1 \\
+1 & 1 & 0 & 0 
+\end{tabular}
+\end{center}
+
+This is essentially adding ``even" with ``odd." Here, you can think of ``even" as zero, so the fourth row says ``odd + odd = even."\\
+
+One operation that we can't do on True/False is exponentiation.  Consider
+\[
+p^q
+\]
+
+All of these make sense except possible $0^0$ which is technically an indeterminate form, but we simply say $0^0 = 1$.  This is a fact we can derive from calculus.  I don't need you to derive it, simply take that as an axiom for now.\\
+
+\vspace{.25in}
+
+(a) Write the truth table for $p^q$.  What is the equivalent truth table of the 16 classical ones we showed in class?
+
+\vspace{.25in}
+
+(b) Using our new found operation of exponentiating bits, show directly
+\[
+p^{q^r} \neq p^{q\cdot r}
+\]
+
+What is the classical operation we've shown (in terms of statements in T/F)?  Additionally, pick some numbers which are not $0,1$ and plug this in just to show that exponentiation is not associative, but simply right associative.  
+
+\vspace{.25in}
+
+(c) Show that exponentiation distrubtes over multiplication (i.e.)
+\[
+(p\cdot q)^r \equiv p^r \cdot q^r
+\]
+What is the classical version of this? By ``classical version" I mean the form that we would recognize with the symbols $\wedge,\vee,\sim,\rightarrow,\leftarrow, \leftrightarrow,$xor.  
+
+Hint: Recall that in part (a) you should have gotten
+\[
+p^q \equiv q\rightarrow p \equiv p \leftarrow q
+\]
+
+\newpage
+
+
+(Problem 3) The valid argument forms we have seen generally take the form
+\[
+\text{ Hypothesis } A, \text{ hypothesis } B, \text{ therefore } C
+\]
+This can be rewritten in as a single statement:
+\[
+(A\wedge B) \rightarrow C \equiv \tau
+\]
+
+For example the classic modus ponens appears as
+\[
+(p \wedge(p\rightarrow q)) \rightarrow q \equiv \tau.
+\]
+
+(a) Establish that the following argument form is valid by any method you choose.
+\begin{itemize}
+\item[] $p\rightarrow q$\\
+\item[] $q \rightarrow (r \wedge s)$\\
+\item[] $\sim r \vee (\sim t \vee u)$\\
+\item[] $p\wedge t$\\
+\item[] $\therefore u$
+\end{itemize}
+ 
+You may use a truth table, deduction with valid argument forms, or a combination thereof.\\
+
+\vspace{1in}
+
+(b) Rewrite this argument form as a single statement. Then reduce it by DeMorgan's laws if possible.
+
+\vspace{.5in}
+
+(c) Negate the statement you wrote in part (b).  Give an example (using actual statements for the variables) to show the negation does not yield a valid argument.
+
+\newpage
+
+(Problem 4) Show that ``if, and only if" and ``exclusive or" are associative.
+
+(a) Show 
+\[
+(p\leftrightarrow q)\leftrightarrow r \equiv p\leftrightarrow (q \leftrightarrow r)
+\]
+
+
+(b) Show
+\[
+(p \text{ xor } q) \text{ xor } r \equiv p \text{ xor } (q \text{ xor } r)
+\]
+
+\newpage
+
+(Problem 5) In this problem we'll explore the scant beginnings of 3-valued logic.  Despite the massive amount of economic investment in binary computing, ternary computing has a long history, but the main propietors of ternary computing were a small group of soviets in 1958.\cite{Br}  Amongst the advantages are faster computational times, which we'll explore at the end of Discrete math 2, as well as lower energy comsumption.  The problem, is that building these computers is slightly trickier since there are more than 16 2-bit gates.  
+\par The analogy of a bit in 3-valued logic is called a trit.  In d-valued logic it is called a dit or n-dit or d-bit.  Trits can take the values ``true, false, and unknown" (T,F,U).  We usually write these as $(-1,0,1)$.  In order to write down a single gate we can use one of two methods.  First we could write a 9-row table.  For example:
+\begin{center}
+\begin{tabular}{c | c | c}
+$p $& $q$ & $p*q$\\
+\hline
+-1 & -1 &  1\\
+-1 &  0 &  0\\
+-1 &  1 & -1\\
+0  & -1 &  0\\
+0  & 0  & 0 \\
+0 & 1 & 0\\
+1 & -1 & -1\\
+1 & 0 & 0\\
+1 & 1 & 1
+\end{tabular}
+\end{center}
+
+
+We could, however, write a single gate in a more compact way.  The first trit is on the left, and the second trit is on the top.  For example: 
+
+
+
+\begin{center}
+\begin{tabular}{c | c  c  c}
+$*$ & -1 & 0 & 1\\
+\hline
+-1 & 1 & 0 & -1\\
+0 & 0 & 0 & 0\\
+1 & -1 & 0 & 1
+\end{tabular}
+\end{center}
+
+
+(a) How many gates on a single trit are possible?  For bits, there are 4 possibilities $\tau,c,p,\sim p$.  For trits, it's quite a lot more.\\
+
+
+(b) How many gates on two trits are possible? For bits, there are 16.  For trits, the number is significantly higher.\\
+
+(c) How many gates are possible on $n$ trits?   You may leave this answer as an algebraic expression.\\
+
+(d) Show that the following gate is a universal gate on trits.
+
+\begin{center}
+\begin{tabular}{c | c c c }
+TAND & -1 & 0 & 1\\
+\hline
+-1 & -1 & 1 & 1 \\
+0  & 1  & 1 & 1\\
+1  & 1  & 1 & 0
+\end{tabular}
+\end{center}  
+
+Hint: Part (d) is probably the most difficult question you'll face this term.  Look at \cite{Tw} for a little help.  Don't plagiarize.  First, think about what are the necessary qualities a gate will need to have in order to be universal.\\
+
+(e) Find a second universal gate for trits.\\
+Hint: This is incredibly easy if you've understood the point of part (d).
+\newpage
+
+\section{Notes for this Homework}
+
+We've mentioned a few things in this homework which we mentioned in passing in class.  Let's take a moment to codify them a bit.  First, universal gates:  A universal gate, or universal logical operation is an operation from which any other operation can be built.  A universal set, is a collection of operations, which can produce any other gate by some combination.  As we consider higher and higher numbers of logical values, a higher and higher percentage of gate become universal.  As a matter of fact, the number of gates which are universal tends toward $1/e \approx 37\%$.  This lends some hope to building computers in higher valued logical systems.\\
+
+\par The next thing to mention is left and right associativity.  In computer science and mathematics, we generally tend to assume things are right associative.  This means is we have a list of items $a_1,a_2,\dots a_n$ and we wish to combine them by some binary function:
+\[
+f(x,y) = x \# y
+\]
+where $\#$ does some operation (multiply, exponentiate, div, mod, square and add 1, etc)
+then we assume
+\[
+f(a_1,a_2,\dots, a_n) = (a_1 \# (a_2 \#(\dots(a_{n-1}\# a_n))))
+\]
+This is right associativity.
+
+Left associativity is 
+\[
+g(a_1,a_2,\dots,a_n) = (((a_1\# a_2)\# a_3 \dots )\# a_n)
+\]
+
+
+
+
+\begin{thebibliography}{99}
+\bibitem{Br} http://www.computer-museum.ru/english/galglory\_en/Brusentsov.htm
+
+\bibitem{Tw} http://twistedoakstudios.com/blog/Post7878\_exploring-universal-ternary-gates
+
+\end{thebibliography}
+\end{document}

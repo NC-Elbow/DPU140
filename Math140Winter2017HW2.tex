@@ -1,0 +1,95 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 2 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+
+In this homework we will explore the beginnings of predicate logic and universal statements.  We will also explore the importance of domains in universal statements.
+
+
+\section{Problems}
+
+Problem 1. (a) Negate the following statement:
+
+\[
+\forall x\in \R, \text{ If } e^x > 1 \text{ then } x > 0.
+\]
+
+(b) The statement in (a) is true.  Therefore the negation is false.  Why does $e^{\ln(1/2)} = \frac{1}{2}$ not violate the above statement?\\
+
+(c) Negate the following statement:
+
+\[
+\exists x\in \R \text{ so that } e^x < 0.
+\]
+
+(d) The statement in (c) is false, therefore its negation is true.  Give a counterexample to show that the statement is, in fact, false.
+
+\newpage
+
+Problem 2.  Consider the predicate $P(x)$ on three different domains, integers, rationals, and reals.
+
+\begin{itemize}
+\item[Integer:] $\forall x\in \Z, P(x)$\\
+\item[Rational:] $\forall x\in \Q, P(x)$\\
+\item[Real:] $\forall x\in \R, P(x)$\\
+\end{itemize}
+
+In this case, the domain changes the truth of the statement.  For example, $P(x) = ``x^2-x \ge 0"$ is true when $x$ is an integer, but otherwise false, since $(1/2)^2-(1/2) = -(1/4)$.  
+
+(a) Find a predicate $P(x)$ so that the first two statements are true, but the final statement is false.\\
+
+(b) Find a predicate $P(x)$ so that the final two statements are true, but the first statement is false.\\
+
+(c) Find a predicate $P(x)$ so that the first and third statements are true, but the second statement is false.\\
+
+Hint: Parts (a) and (b) are easy.  Part (c) will require a lot more thought.
+
+\newpage
+
+Problem 3. Find the truth set $D$ for the following statement. Let $a,b,c$ be positive integers where $a<b<c$.
+
+\[
+\forall x\in D, (x-a)(x-b)(x-c)>0.
+\]  
+
+\newpage
+
+Problem 4. Consider the following argument form:
+
+\begin{itemize}
+\item $\forall k\in \mathbb{N}_0, P(k) \rightarrow P(k+1)$\\
+\item $P(0)$\\
+\item $\therefore \forall n\in \mathbb{N}_0, P(n)$
+\end{itemize}
+
+(a) Is this a valid argument form?\\
+
+(b) Use this argument form to check the soundness of the following statement:
+\[
+1 + 2 + 4 + \cdots + 2^k = 2^{k+1} - 1.
+\]
+
+\end{document}

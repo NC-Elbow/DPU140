@@ -1,0 +1,147 @@
+\documentclass[16 pt]{amsart}
+\usepackage{amscd,amsmath,amsthm,amssymb}
+\usepackage{enumerate,varioref}
+\usepackage{epsfig}
+\usepackage{graphicx}
+\usepackage{mathtools}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[thm]{Definition}
+\theoremstyle{remark}
+\newtheorem{ex}[thm]{Example}
+\newtheorem{rem}[thm]{Remark}
+\numberwithin{equation}{subsection}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\lh}{\lim_{h\rightarrow 0}}
+\begin{document}
+
+\title{Homework 5 Maths 140 Winter 2017 \\ DePaul University\\Dr. Alexander}
+\maketitle
+
+\section{Introduction}
+In this problem set we'll explore some basic properties of functions and how we can obtain pertinent information about sets from the functions between them.
+
+\section{Problems}
+
+Problem 1. For each of the following functions $f:A\rightarrow A$ tell me (i) is this function injective (one to one), surjective (onto), bijective, or neither if the domain and range are $\R$ (ii) What effect changing the domain and range to $\Q$ has.\\
+
+(a) 
+\[
+f(x) = \frac{x}{x^2+1}
+\]
+
+(b)
+\[
+f(x) = x^3 - x
+\]
+
+(c) 
+\[
+f(x) = 2^x
+\]
+
+(Bonus) Give an example of a function which is neither injective nor surjective, but if we remove one point from the domain and codomain this function becomes bijective.
+
+\newpage
+
+Problem 2. Consider two finite sets $A,B$ with $|A|>|B|$.  Now consider some function $f:A\rightarrow B$.\\
+
+(a) Can $f$ be injective?  If so, give an example, if not, prove it.\\
+
+(b) Is $f$ necessarily onto?  If so, prove it, if not, give a counterexample.
+
+\newpage
+
+Problem 3. Consider a set $S$ and let $A,B\subseteq S$. Define the characteristic function $\chi_A$ of a subset of $A$ of $S$ 
+\[
+\chi_A : S\rightarrow \{0,1\} \text{ by } \chi_A(x) = \left\{\begin{array}{cc}1 & x\in A\\ 0 & x\notin A \end{array}\right.
+\]   
+
+(a) Prove the following:
+\[
+\chi_{A\cap B}(x) = \chi_A(x)\cdot\chi_B(x)
+\]
+
+(b)
+\[
+\chi_{A\cup B}(x) = \chi_A(x)+\chi_B(x)-\chi_{A\cap B}(x)
+\]
+
+(c)
+\[
+\chi_{A^c}(x) = 1 - \chi_A(x)
+\]
+
+(d) In terms of $\chi_A$ and $\chi_B$ what is
+\[
+\chi_{A\Delta B}(x)?
+\]
+
+\newpage 
+
+Problem 4.  Define a set map $M:\Q\rightarrow \Z$ by
+\[
+M\left(\frac{a}{b}\right) = a-b
+\]
+
+(a) Is $M$ a function?  If so, prove it, if not give a counterexample.\\
+
+(b) If we consider $M\left(\frac{a}{b}\right) = ab$ is this a function?\\
+
+(c) If we consider $M\left(\frac{a}{b}\right) = a\div b$ is this a function?
+
+\newpage
+
+Problem 5.  The Fibonacci numbers are defined as $F_n = F_{n-1}+F_{n-2}$ with $F_0=0$ and $F_1=1$.  The closed form solution to this sequence becomes:
+\[
+F_n = \frac{1}{\sqrt{5}}(\phi^n + \phi^{-n}) \text{ where } \phi = \frac{1+\sqrt{5}}{2} \text{ is the golden ratio.}
+\]
+
+(a) Suppose we extend this definition to 
+\[
+F:\R \rightarrow \R 
+\]
+by
+\[
+F(x) = \frac{1}{\sqrt{5}}(\phi^x + \phi^{-x})
+\]
+This allows us to have Fibonacci numbers before $F_0$.
+
+(a) Show $F(x) = F(x-1) + F(x-2)$.\\
+
+(b) Graph $F(x)$ on positive and negative axes.\\
+
+(c) What is $F(1/2)$, the ``one-half$^{th}$" Fibonacci number?
+
+(d) Is $F$ injective, surjective, bijective?
+
+
+
+
+
+
+
+
+\newpage
+
+\section{Notes}
+
+Problem 2 gets us to studying the pigeonhole principle far in advance.  In fact, if you've done the homework correctly, you have already proven it.  This is among the most useful tools in mathematical analysis and combinatorics.  It allows us to rigorously state why we know certain intuitive things to be true.  For example, if the final scoreline of a baseball game is 10-3, then aside from knowing one team got beaten embarrassingly badly, we also know in at least one of the 9 innings the winning team scored at least 2 runs.  Additionally, we know there were at least 6 innings in which the losing team failed to score.  We can say these with certainty now by defining our sets as runs scored and innings and making functions which go from the larger set to the smaller set. These are guaranteed to fail to be injective.  The Pigeonhole principle is not often used on its own, but in conjunction with other techniques to prove all manner of things. \\
+
+\par The characteristic function of a set is useful much in the same way as the pigeonhole principle.  A large piece of modern mathematics, called representation theory uses characteristic functions to study structures called finite groups whose main purpose is to describe symmetries which appear in physics and higher dimensional geometry and geometry of non Euclidean spaces.\\
+
+\par Finally, in the Fibonacci sequence, we often seek to solve recurrence relations explicitly.  That is, we want to turn a sequence into a function of its index 
+\[
+a_n \rightsquigarrow a(n).
+\]
+
+Given this, we can extend the domain to reals and complex numbers, and it some cases matrices.  These techniques show up in physics and engineering, since many recurrence relations are discrete versions of differential equations which we use to model nearly every physical process that we have studied extensively.  
+
+
+\end{document}
